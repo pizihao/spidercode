@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>1186. 删除一次得到子数组最大和</h2>

@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * 812. 最大三角形面积

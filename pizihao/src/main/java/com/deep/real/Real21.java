@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * 17.11. 单词距离

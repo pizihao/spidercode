@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 import java.util.Arrays;
 

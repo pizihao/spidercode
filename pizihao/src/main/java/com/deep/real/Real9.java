@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>713. 乘积小于 K 的子数组</h2>

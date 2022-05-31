@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>081. 允许重复选择元素的组合</h2>

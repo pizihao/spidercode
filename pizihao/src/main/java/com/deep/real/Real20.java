@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>376. 摆动序列</h2>

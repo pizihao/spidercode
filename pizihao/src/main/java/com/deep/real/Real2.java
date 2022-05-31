@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>504，七进制数</h2>

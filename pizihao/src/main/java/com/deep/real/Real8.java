@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>1876. 长度为三且各字符不同的子字符串</h2>

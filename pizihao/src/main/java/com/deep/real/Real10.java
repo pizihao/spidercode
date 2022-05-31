@@ -1,4 +1,4 @@
-package deep.real;
+package com.deep.real;
 
 /**
  * <h2>1277. 统计全为 1 的正方形子矩阵</h2>
