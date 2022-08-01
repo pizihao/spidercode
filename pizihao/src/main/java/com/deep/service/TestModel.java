@@ -1,8 +1,9 @@
 package com.deep.service;
 
-import com.deep.jsr269.Type;
-import lombok.Getter;
+import com.deep.crow.type.ParameterizedTypeImpl;
+import com.deep.jsr269.TypeName;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,22 +14,11 @@ import java.util.Map;
  *
  * @author Create by liuwenhao on 2022/7/28 17:25
  */
-public class TestModel {
+public class TestModel extends TestDefult {
 
-    @Type
+    @TypeName("intType")
     private List<String> strings = new ArrayList();
-    @Type
+
+    @TypeName("strType")
     private Map<? extends Integer, ? super String> integers = new HashMap<>();
-
-    public static void main(String[] args) {
-
-        @Type
-        List<String> strings = new ArrayList<>();
-        TestModel testModel = new TestModel();
-    }
-
-    public List<String> _stringsType() {
-        return this.strings;
-    }
-
 }
