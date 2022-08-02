@@ -2,9 +2,6 @@ package com.deep.service;
 
 import com.deep.jsr269.TypeName;
 
-import com.deep.crow.type.ParameterizedTypeImpl;
-import java.lang.reflect.Type;
-
 
 /**
  * <h2></h2>

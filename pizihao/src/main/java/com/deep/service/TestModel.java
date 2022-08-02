@@ -1,9 +1,7 @@
 package com.deep.service;
 
-import com.deep.crow.type.ParameterizedTypeImpl;
 import com.deep.jsr269.TypeName;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
