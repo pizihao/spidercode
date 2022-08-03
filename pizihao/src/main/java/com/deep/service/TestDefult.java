@@ -1,7 +1,5 @@
 package com.deep.service;
 
-import com.deep.jsr269.TypeName;
-
 
 /**
  * <h2></h2>
@@ -10,7 +8,6 @@ import com.deep.jsr269.TypeName;
  */
 public class TestDefult {
 
-    @TypeName
     String str = "hhh";
 
 }

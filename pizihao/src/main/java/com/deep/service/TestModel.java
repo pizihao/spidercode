@@ -1,7 +1,5 @@
 package com.deep.service;
 
-import com.deep.jsr269.TypeName;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,9 +12,7 @@ import java.util.Map;
  */
 public class TestModel extends TestDefult {
 
-    @TypeName("intType")
     private List<String> strings = new ArrayList();
 
-    @TypeName("strType")
     private Map<? extends Integer, ? super String> integers = new HashMap<>();
 }
