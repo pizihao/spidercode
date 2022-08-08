@@ -40,7 +40,8 @@ public @interface Close {
 
     TestEnum[] arrays();
 
-    TestEnum[] arraylist()  default {TestEnum.DOWN, TestEnum.LEFT, TestEnum.RIGHT, TestEnum.UP};
+    Open[] opens();
 
+    Blue[] blues();
 
 }
