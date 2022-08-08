@@ -10,4 +10,6 @@ public class TestDefult {
 
     String str = "hhh";
 
+    String[] strings = {};
+
 }

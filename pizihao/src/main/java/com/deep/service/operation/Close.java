@@ -14,8 +14,33 @@ import java.lang.annotation.*;
 @Documented
 public @interface Close {
 
+    /**
+     * 常量 ，基本数据类型和String类型
+     */
     int test();
 
-    Class<?> cls();
+    /**
+     * Class
+     */
+    Class<? extends TestDefult> cls();
+
+    /**
+     * 注解
+     */
+    Open open();
+
+    /**
+     * Enum
+     */
+    TestEnum enums();
+
+    /**
+     * 数组
+     */
+
+    TestEnum[] arrays();
+
+    TestEnum[] arraylist()  default {TestEnum.DOWN, TestEnum.LEFT, TestEnum.RIGHT, TestEnum.UP};
+
 
 }
