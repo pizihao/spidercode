@@ -1,6 +1,6 @@
-package com.deep.jsr269.operation;
+package com.deep.service.jsr269.operation;
 
-import com.deep.jsr269.TestDefult;
+import com.deep.service.jsr269.TestDefult;
 
 import java.lang.annotation.*;
 

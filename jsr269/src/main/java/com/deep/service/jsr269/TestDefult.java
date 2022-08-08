@@ -1,4 +1,4 @@
-package com.deep.jsr269;
+package com.deep.service.jsr269;
 
 
 /**

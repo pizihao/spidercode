@@ -1,4 +1,4 @@
-package com.deep.jsr269;
+package com.deep.service.jsr269;
 
 import java.util.ArrayList;
 import java.util.HashMap;
