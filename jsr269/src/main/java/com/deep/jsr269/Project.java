@@ -1,12 +1,14 @@
-package com.deep.service.operation;
+package com.deep.jsr269;
+
+import com.deep.jsr269.operation.Open;
 
 import java.lang.annotation.*;
 
 @Target(ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Open {
+public @interface Project {
 
-    String value();
+    Open name();
 
 }

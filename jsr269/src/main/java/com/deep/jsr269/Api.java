@@ -1,6 +1,4 @@
-package com.deep.service;
-
-import com.deep.jsr269.Top;
+package com.deep.jsr269;
 
 import java.lang.annotation.*;
 

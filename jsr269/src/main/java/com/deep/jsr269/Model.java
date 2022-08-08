@@ -1,10 +1,10 @@
-package com.deep.service;
+package com.deep.jsr269;
 
 
-import com.deep.service.operation.Blue;
-import com.deep.service.operation.Close;
-import com.deep.service.operation.Open;
-import com.deep.service.operation.TestEnum;
+import com.deep.jsr269.operation.Blue;
+import com.deep.jsr269.operation.Close;
+import com.deep.jsr269.operation.Open;
+import com.deep.jsr269.operation.TestEnum;
 
 import java.lang.annotation.*;
 
