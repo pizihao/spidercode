@@ -10,6 +10,7 @@
     <version>1.0</version>
     <modules>
         <module>pizihao</module>
+        <module>jsr269</module>
     </modules>
 
     <properties>
@@ -21,13 +22,39 @@
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
-            <version>1.12.6</version>
+            <version>1.12.10</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.pizihao</groupId>
+            <artifactId>crow</artifactId>
+            <version>0.0.9.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.3</version>
         </dependency>
         <dependency>
             <groupId>com.esotericsoftware</groupId>
             <artifactId>reflectasm</artifactId>
             <version>1.11.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-all</artifactId>
+            <version>5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.pizihao</groupId>
+            <artifactId>share-anno</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>
