@@ -1,9 +1,6 @@
 package com.deep.mvc.conrtroller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <h2></h2>
@@ -17,6 +14,11 @@ public class TestController {
 
     @GetMapping("/{id}")
     public String test(@PathVariable String id){
+        return id;
+    }
+
+    @GetMapping("/body")
+    public Model test(@RequestBody Model id){
         return id;
     }
 
