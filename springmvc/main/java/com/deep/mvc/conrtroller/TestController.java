@@ -22,5 +22,11 @@ public class TestController {
         return id;
     }
 
+    @PutMapping("/{id}")
+    public Model testPut(@RequestBody Model model, @PathVariable Integer id){
+        model.setId(id);
+        return model;
+    }
+
 
 }
