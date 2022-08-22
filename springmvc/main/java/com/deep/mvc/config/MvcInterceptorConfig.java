@@ -18,15 +18,15 @@ public class MvcInterceptorConfig implements WebMvcConfigurer {
 
     @Autowired
     Interceptor1 interceptor1;
-//    @Autowired
-//    Interceptor2 interceptor2;
+    @Autowired
+    Interceptor2 interceptor2;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(interceptor1)
             .excludePathPatterns("/error")
             .addPathPatterns("/**");
-//        registry.addInterceptor(interceptor2).addPathPatterns("/**");
+        registry.addInterceptor(interceptor2).addPathPatterns("/**");
     }
 
 

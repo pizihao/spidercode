@@ -23,6 +23,7 @@ public class Interceptor1 implements AsyncHandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println(request.getRequestURL());
+        System.out.println(request.getDispatcherType());
         System.out.println("拦截器1 ： 前置处理器，返回true");
         return true;
     }
