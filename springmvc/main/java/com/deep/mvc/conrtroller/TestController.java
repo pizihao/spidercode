@@ -22,14 +22,28 @@ public class TestController {
     }
 
     @GetMapping("/body")
-    public Model test(@RequestBody Model id){
+    public Model test(@RequestBody Model id) {
         return id;
     }
 
     @PutMapping("/{id}")
-    public Model testPut(@RequestBody Model model, @PathVariable Integer id){
+    public Model testPut(@RequestBody Model model, @PathVariable Integer id) {
         model.setId(id);
         return model;
+    }
+
+    @RequestMapping(
+        name = "requestMappingTest",
+        value = "/request",
+        headers = "content-type=text/*",
+        consumes = "text/plain",
+        method = RequestMethod.GET,
+        params = "myParam=myValue",
+        path = "/request",
+        produces = "application/*"
+    )
+    public Model requestMappingTest(@RequestParam String name) {
+        return new Model();
     }
 
 
