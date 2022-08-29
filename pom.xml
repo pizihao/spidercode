@@ -11,6 +11,7 @@
     <modules>
         <module>pizihao</module>
         <module>jsr269</module>
+        <module>threadPool</module>
     </modules>
 
     <properties>
