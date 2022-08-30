@@ -1,0 +1,10 @@
+spring:
+  port: 8080
+  application:
+    name: SPRING_MVC
+  dynamic:
+    thread-pool:
+      # 是否开启动态线程池
+      enable: true
+      # 是否打印 banner
+      banner: true
