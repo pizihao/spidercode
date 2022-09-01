@@ -1,6 +1,7 @@
 package com.deep.pool.config;
 
 import cn.hippo4j.core.executor.DynamicThreadPool;
+import cn.hippo4j.core.executor.support.ThreadPoolBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
@@ -15,21 +16,29 @@ import java.util.concurrent.*;
 @Configuration
 public class ThreadPool {
 
-    @Bean("masterExecutorService")
+    @Bean
     @DynamicThreadPool
-    public ExecutorService pimExecutorService() {
-        // 线程工厂
-        ThreadFactory factory = new CustomizableThreadFactory("Master-thread-");
-        return getExecutorService(factory);
+    public ThreadPoolExecutor messageConsumeDynamicExecutor() {
+        String threadPoolId = "message-consume";
+        return ThreadPoolBuilder.builder()
+            .threadFactory(threadPoolId)
+            .threadPoolId(threadPoolId)
+            .dynamicPool()
+            .build();
     }
 
-    @Bean("ExecutorService")
+    @Bean
     @DynamicThreadPool
-    public ExecutorService commonExecutorService() {
-        // 线程工厂
-        ThreadFactory factory = new CustomizableThreadFactory("Common-thread-");
-        return getExecutorService(factory);
+    public ThreadPoolExecutor messageProduceDynamicExecutor() {
+        String threadPoolId = "message-produce";
+
+        return ThreadPoolBuilder.builder()
+            .threadFactory(threadPoolId)
+            .threadPoolId(threadPoolId)
+            .dynamicPool()
+            .build();
     }
+
 
     /**
      * <h2>通过配置生成一个线程池</h2>
