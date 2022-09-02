@@ -21,11 +21,17 @@ public class TestController {
 
     @Autowired
     ThreadPoolExecutor messageProduceDynamicExecutor;
+    @Autowired
+    InetUtils inetUtils;
 
     @PutMapping("/{id}")
     public Model testPut(@RequestBody Model model, @PathVariable Integer id) {
-        InetUtils
         System.out.println(messageProduceDynamicExecutor.getCorePoolSize());
+        InetUtils.HostInfo hostInfo = inetUtils.findFirstNonLoopbackHostInfo();
+        System.out.println(hostInfo.getHostname());
+        System.out.println(hostInfo.getIpAddress());
+        System.out.println(hostInfo.getIpAddressAsInt());
+        System.out.println();
         model.setId(id);
         return model;
     }

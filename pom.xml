@@ -12,6 +12,7 @@
         <module>pizihao</module>
         <module>jsr269</module>
         <module>threadPool</module>
+        <module>springmvc</module>
     </modules>
 
     <properties>
