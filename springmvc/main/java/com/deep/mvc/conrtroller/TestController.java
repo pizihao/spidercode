@@ -1,9 +1,10 @@
 package com.deep.mvc.conrtroller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.async.DeferredResult;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.Callable;
 
 /**
  * <h2></h2>
@@ -15,9 +16,34 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("Test")
 public class TestController {
 
-    @GetMapping("/{id}")
-    public String test(@PathVariable String id){
+    @GetMapping(value = "/{id}")
+    public Callable<String> test(@PathVariable String id, HttpServletRequest request) throws InterruptedException {
+        return () -> "handler";
+    }
+
+    @GetMapping("/body")
+    public Model test(@RequestBody Model id) {
         return id;
+    }
+
+    @PutMapping("/{id}")
+    public Model testPut(@RequestBody Model model, @PathVariable Integer id) {
+        model.setId(id);
+        return model;
+    }
+
+    @RequestMapping(
+        name = "requestMappingTest",
+        value = "/request",
+        headers = "content-type=text/*",
+        consumes = "text/plain",
+        method = RequestMethod.GET,
+        params = "myParam=myValue",
+        path = "/request",
+        produces = "application/*"
+    )
+    public Model requestMappingTest(@RequestParam String name) {
+        return new Model();
     }
 
 

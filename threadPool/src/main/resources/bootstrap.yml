@@ -1,0 +1,11 @@
+spring:
+  port: 8080
+  application:
+    name: thread-pool
+  cloud:
+    nacos:
+      config:
+        server-addr: 47.100.139.231:8848
+        namespace: 16231cfd-9879-4419-a6fd-94e1553ce155
+        enabled: true
+        file-extension: yaml
