@@ -46,5 +46,10 @@ public class TestController {
         return new Model();
     }
 
+    @GetMapping(value = "/order",produces = "test/plain")
+    public Order test(@RequestBody Order order){
+        return order;
+    }
+
 
 }
