@@ -32,24 +32,24 @@ public class TestController {
         return model;
     }
 
-    @RequestMapping(
-        name = "requestMappingTest",
-        value = "/request",
-        headers = "content-type=text/*",
-        consumes = "text/plain",
-        method = RequestMethod.GET,
-        params = "myParam=myValue",
-        path = "/request",
-        produces = "application/*"
-    )
-    public Model requestMappingTest(@RequestParam String name) {
-        return new Model();
-    }
-
-    @GetMapping(value = "/order",produces = "test/plain")
-    public Order test(@RequestBody Order order){
+    //    @RequestMapping(
+//        name = "requestMappingTest",
+//        value = "/request",
+//        headers = "content-type=text/*",
+//        consumes = "text/plain",
+//        method = RequestMethod.GET,
+//        params = "myParam=myValue",
+//        path = "/request",
+//        produces = "application/*"
+//    )
+//    public Model requestMappingTest(@RequestParam String name) {
+//        return new Model();
+//    }
+//
+    @PutMapping(value = {"/order", "/begin-order"})
+    public Order test(@RequestBody Order order) {
+        System.out.println(order);
         return order;
     }
-
 
 }
