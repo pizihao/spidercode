@@ -1,4 +1,4 @@
-package com.deep.mvc.conrtroller;
+package com.deep.mvc.model;
 
 /**
  * @author Create by liuwenhao on 2022/8/16 17:40

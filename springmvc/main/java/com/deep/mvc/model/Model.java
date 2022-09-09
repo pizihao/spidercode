@@ -1,4 +1,4 @@
-package com.deep.mvc.conrtroller;
+package com.deep.mvc.model;
 
 /**
  * <h2></h2>
