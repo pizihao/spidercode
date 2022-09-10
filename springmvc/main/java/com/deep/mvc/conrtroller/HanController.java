@@ -1,16 +1,19 @@
 package com.deep.mvc.conrtroller;
 
 import com.deep.mvc.model.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <h2></h2>
  *
- * @author Create by liuwenhao on 2022/9/9 15:25
+ * @author Create by liuwenhao on 2022/9/10 17:11
  */
 @RestController
-@RequestMapping("handler")
-public class HandlerController {
+@RequestMapping("hand")
+public class HanController {
 
     @GetMapping({"/body", "/handler"})
     public Model test(Integer id) {
