@@ -29,4 +29,13 @@ public class HanController {
         return model;
     }
 
+
+    @PutMapping({"/handler", "/change","/moreHanlder"})
+    public Model moreHandler(Integer id) {
+        Model model = new Model();
+        model.setId(id);
+        System.out.println(222);
+        return model;
+    }
+
 }
