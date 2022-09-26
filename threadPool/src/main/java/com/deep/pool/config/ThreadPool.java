@@ -2,6 +2,7 @@ package com.deep.pool.config;
 
 import cn.hippo4j.core.executor.DynamicThreadPool;
 import cn.hippo4j.core.executor.support.ThreadPoolBuilder;
+import cn.hutool.core.thread.NamedThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
@@ -39,6 +40,18 @@ public class ThreadPool {
             .build();
     }
 
+    public static void main(String[] args) {
+        ThreadFactory factory = new NamedThreadFactory("a",true);
+        ThreadPool threadPool = new ThreadPool();
+        ThreadPoolExecutor executorService = threadPool.getExecutorService(factory);
+
+        executorService.setCorePoolSize(39);
+        System.out.println(executorService.getCorePoolSize());
+        System.out.println(executorService.getMaximumPoolSize());
+        executorService.setMaximumPoolSize(39);
+
+        int corePoolSize = executorService.getCorePoolSize();
+    }
 
     /**
      * <h2>通过配置生成一个线程池</h2>
@@ -48,7 +61,7 @@ public class ThreadPool {
      * @author liuwenhao
      * @date 2022/1/14 13:56
      */
-    private ExecutorService getExecutorService(ThreadFactory factory) {
+    private ThreadPoolExecutor getExecutorService(ThreadFactory factory) {
         // 核心线程数
         int coreSize = 16;
         // 线程池最大值
