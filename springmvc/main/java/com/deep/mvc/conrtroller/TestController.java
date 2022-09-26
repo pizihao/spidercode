@@ -2,6 +2,7 @@ package com.deep.mvc.conrtroller;
 
 import com.deep.mvc.model.Model;
 import com.deep.mvc.model.Order;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,7 @@ import java.util.concurrent.Callable;
  * @author Create by liuwenhao on 2022/8/14 14:12
  */
 
-@RestController
+@Controller
 @RequestMapping("Test")
 public class TestController {
 
