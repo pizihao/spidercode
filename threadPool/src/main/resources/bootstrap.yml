@@ -1,5 +1,4 @@
 spring:
-  port: 8080
   application:
     name: thread-pool
   cloud:
@@ -9,3 +8,6 @@ spring:
         namespace: 16231cfd-9879-4419-a6fd-94e1553ce155
         enabled: true
         file-extension: yaml
+
+server:
+  port: 8081
