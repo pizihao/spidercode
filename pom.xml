@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>pizihao</module>
         <module>jsr269</module>
         <module>threadPool</module>
         <module>springmvc</module>
@@ -54,11 +53,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.pizihao</groupId>
-            <artifactId>share-anno</artifactId>
-            <version>0.0.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.github.pizihao</groupId>-->
+<!--            <artifactId>share-anno</artifactId>-->
+<!--            <version>0.0.1</version>-->
+<!--        </dependency>-->
 
     </dependencies>
 
