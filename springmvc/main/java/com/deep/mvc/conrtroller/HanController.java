@@ -1,10 +1,7 @@
 package com.deep.mvc.conrtroller;
 
 import com.deep.mvc.model.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <h2></h2>
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("hand")
 public class HanController {
 
+    @ExceptionHandler
     @GetMapping({"/body", "/handler"})
     public Model test(Integer id) {
         System.out.println(111);
