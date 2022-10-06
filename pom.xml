@@ -13,6 +13,7 @@
         <module>threadPool</module>
         <module>springmvc</module>
         <module>flink</module>
+        <module>JDK19</module>
     </modules>
 
     <properties>
@@ -52,6 +53,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.4.7</version>
         </dependency>
 <!--        <dependency>-->
 <!--            <groupId>io.github.pizihao</groupId>-->

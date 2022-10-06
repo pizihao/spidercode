@@ -10,6 +10,16 @@ public class Model {
     Integer id;
     String name;
 
+    String contractId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -18,11 +28,20 @@ public class Model {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public String getContractId() {
+        return contractId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", contractId='" + contractId + '\'' +
+                '}';
     }
 }
