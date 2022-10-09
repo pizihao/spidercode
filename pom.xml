@@ -14,6 +14,7 @@
         <module>springmvc</module>
         <module>flink</module>
         <module>JDK19</module>
+        <module>pizihao</module>
     </modules>
 
     <properties>
