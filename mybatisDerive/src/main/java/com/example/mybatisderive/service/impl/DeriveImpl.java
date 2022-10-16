@@ -6,6 +6,7 @@ import com.example.mybatisderive.model.DTO.QueryDTO;
 import com.example.mybatisderive.service.DeriveService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import java.util.List;
 
@@ -17,9 +18,19 @@ import java.util.List;
 public class DeriveImpl implements DeriveService {
 
     final DeriveMapper deriveMapper;
+    final TransactionTemplate transactionTemplate;
 
     @Override
     public Integer save(DeriveDO deriveDO) {
+
+
+        transactionTemplate.executeWithoutResult(t -> {
+            deriveMapper.insert(deriveDO);
+            Object savepoint = t.createSavepoint();
+            deriveMapper.insert(deriveDO);
+            t.rollbackToSavepoint(savepoint);
+        }) ;
+
         return deriveMapper.insert(deriveDO);
     }
 

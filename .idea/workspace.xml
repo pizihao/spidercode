@@ -4,25 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="添加普通的数据修改">
-      <change afterPath="$PROJECT_DIR$/JDK19/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDK19/src/main/java/cn/spider/NewTest1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDK19/src/main/java/cn/spider/NewTest2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDK19/src/main/java/cn/spider/NewTest3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDK19/src/main/java/cn/spider/NewTest4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mybatisDerive/src/main/java/module-info.java" afterDir="false" />
+    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="信息同步">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/src/main/java/com/example/mybatisderive/service/impl/DeriveImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/src/main/java/com/example/mybatisderive/service/impl/DeriveImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/src/main/java/module-info.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ComposerSettings">
     <execution />
@@ -37,12 +32,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="mybatisDerive" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -76,11 +66,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="pizihao" />
-                    <option name="lastUsedInstant" value="1664287130" />
+                    <option name="lastUsedInstant" value="1665710301" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1664287129" />
+                    <option name="lastUsedInstant" value="1665710254" />
                   </RecentBranch>
                 </list>
               </option>
@@ -90,13 +80,6 @@
         </option>
       </RecentBranches>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$PROJECT_DIR$/../../../maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/ExceptionHandler.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$PROJECT_DIR$/../../../maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/GetMapping.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$PROJECT_DIR$/../../../maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/RequestMapping.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$PROJECT_DIR$/../../../maven/maven/org/springframework/spring-webmvc/5.2.12.RELEASE/spring-webmvc-5.2.12.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/InterceptorRegistry.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$PROJECT_DIR$/../../../maven/maven/org/springframework/spring-webmvc/5.2.12.RELEASE/spring-webmvc-5.2.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,34 +99,46 @@
   <component name="ProjectId" id="29sVhLKIqbmNVf96bEqRdcsd5Kh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/software/IDEA/project/spidercode/pizihao&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14015748&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.40275228&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;fe50b7e7833c9c662f1e522201fe09e8&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "19",
+    "last_opened_file_path": "D:/software/jetbrains/IDEA/project/crow/pom.xml",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.14015748",
+    "project.structure.side.proportion": "0.40275228",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "spring.configuration.checksum": "fe50b7e7833c9c662f1e522201fe09e8"
   }
-}</component>
+}]]></component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\software\IDEA\project\spidercode\Binder\src\main\java\com" />
+      <recent name="D:\software\IDEA\project\spidercode\Binder" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\com" />
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\cn\derive" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.binder.util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -153,7 +148,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestController">
+  <component name="RunManager" selected="Spring Boot.MybatisDeriveApplication">
     <configuration name="NewTest4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.spider.NewTest4" />
       <module name="JDK19" />
@@ -223,10 +218,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.SpringMVCApplication" />
         <item itemvalue="Application.TestController" />
         <item itemvalue="Application.NewTest4" />
         <item itemvalue="Spring Boot.ThreadPoolApplication" />
-        <item itemvalue="Spring Boot.SpringMVCApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -245,6 +240,18 @@
       <workItem from="1664624306673" duration="1133000" />
       <workItem from="1664626414820" duration="14824000" />
       <workItem from="1664767630132" duration="9700000" />
+      <workItem from="1665022987670" duration="1460000" />
+      <workItem from="1665063253664" duration="604000" />
+      <workItem from="1665211681420" duration="3367000" />
+      <workItem from="1665323224442" duration="1081000" />
+      <workItem from="1665648661464" duration="13000" />
+      <workItem from="1665709758286" duration="1143000" />
+      <workItem from="1665713463137" duration="9000" />
+      <workItem from="1665809161065" duration="84000" />
+      <workItem from="1665826367449" duration="1102000" />
+      <workItem from="1665832593389" duration="599000" />
+      <workItem from="1665902685657" duration="858000" />
+      <workItem from="1665909234816" duration="875000" />
     </task>
     <task id="LOCAL-00001" summary="杂项修改">
       <created>1664291973269</created>
@@ -260,7 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664624805256</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="测试新特性">
+      <created>1665023005610</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665023005610</updated>
+    </task>
+    <task id="LOCAL-00004" summary="信息同步">
+      <created>1665710897270</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665710897270</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +292,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/pizihao" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/pizihao" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -280,7 +333,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="杂项修改" />
     <MESSAGE value="添加普通的数据修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加普通的数据修改" />
+    <MESSAGE value="测试新特性" />
+    <MESSAGE value="信息同步" />
+    <option name="LAST_COMMIT_MESSAGE" value="信息同步" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
