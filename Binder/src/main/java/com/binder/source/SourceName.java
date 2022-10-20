@@ -1,10 +1,8 @@
 package com.binder.source;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.binder.element.Element;
+import lombok.*;
 
 /**
  * 用于标识一个配置项的name，用于区别不同{@link Element}的配置信息
@@ -12,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
+@NoArgsConstructor
 public class SourceName {
 
     /**
@@ -35,4 +33,10 @@ public class SourceName {
      */
     Object obj;
 
+    public SourceName(String prefix, String elementName, Integer index, Object obj) {
+        this.prefix = prefix;
+        ElementName = elementName;
+        this.index = index;
+        this.obj = obj;
+    }
 }

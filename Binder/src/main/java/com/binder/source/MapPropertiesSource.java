@@ -17,13 +17,8 @@
 
 package com.binder.source;
 
-import cn.hippo4j.common.constant.Constants;
-import cn.hippo4j.common.toolkit.Assert;
-import cn.hippo4j.common.toolkit.StringUtil;
-import cn.hippo4j.config.springboot.starter.binder.PlaceholdersResolver;
-import cn.hippo4j.config.springboot.starter.binder.mapper.DefaultSourceMapper;
-import cn.hippo4j.config.springboot.starter.binder.mapper.SourceMapper;
 import com.binder.PlaceholdersResolver;
+import com.binder.mapper.DefaultSourceMapper;
 import com.binder.mapper.SourceMapper;
 import com.binder.util.Constants;
 import com.binder.util.StringUtil;
@@ -76,6 +71,7 @@ public class MapPropertiesSource implements Source {
         this.sourceMapper = sourceMapper;
         this.prefix = prefix;
         transMap(map, prefix, sourceMapper);
+        buildSource();
     }
 
     public MapPropertiesSource(Map<String, Object> map, String prefix) {
@@ -106,6 +102,9 @@ public class MapPropertiesSource implements Source {
                     index = -1;
                 }
                 SourceName sourceName = new SourceName(prefix, elementName, index, o);
+                sourceNames.add(sourceName);
+            } else {
+                SourceName sourceName = new SourceName(prefix, s, -1, o);
                 sourceNames.add(sourceName);
             }
         });

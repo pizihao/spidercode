@@ -17,6 +17,9 @@
 
 package com.binder.mapper;
 
+import com.binder.util.Constants;
+import com.binder.util.StringUtil;
+
 /**
  * @author Create by liuwenhao on 2022/10/12 17:07
  */
@@ -30,7 +33,18 @@ public class DefaultSourceMapper implements SourceMapper {
      */
     @Override
     public String convert(String s) {
-        // 数组的情况下去除 [] 中的数据
-        return null;
+        // 数组的情况下去除 [] 中的数据，转换完成后再进行拼接
+        String elementName;
+        String suffix;
+        if (s.contains(Constants.LEFT_BRACKETS) && s.contains(Constants.RIGHT_BRACKETS)) {
+            int leftIndex = s.indexOf(Constants.LEFT_BRACKETS);
+            elementName = s.substring(0, leftIndex);
+            suffix = s.substring(leftIndex);
+        }else {
+            elementName = s;
+            suffix = Constants.NULL;
+        }
+        String camelCase = StringUtil.toCamelCase(StringUtil.toCamelCase(elementName, '_'), '-');
+        return camelCase + suffix;
     }
 }
