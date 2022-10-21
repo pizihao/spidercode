@@ -21,26 +21,26 @@ import com.binder.util.Constants;
 import com.binder.util.StringUtil;
 
 /**
- * @author Create by liuwenhao on 2022/10/12 17:07
+ *
  */
 public class DefaultSourceMapper implements SourceMapper {
 
     /**
-     * 默认将 - 符号和 _ 符号转化为驼峰
+     * By default, the - symbol and _ symbol are converted to humps
      *
-     * @param s 转换前的key
-     * @return 转换后的key，驼峰形式
+     * @param s key before conversion
+     * @return The transformed key, hump form
      */
     @Override
     public String convert(String s) {
-        // 数组的情况下去除 [] 中的数据，转换完成后再进行拼接
+        // In the case of array, the data in [] is divided, and then concatenated after conversion
         String elementName;
         String suffix;
         if (s.contains(Constants.LEFT_BRACKETS) && s.contains(Constants.RIGHT_BRACKETS)) {
             int leftIndex = s.indexOf(Constants.LEFT_BRACKETS);
             elementName = s.substring(0, leftIndex);
             suffix = s.substring(leftIndex);
-        }else {
+        } else {
             elementName = s;
             suffix = Constants.NULL;
         }

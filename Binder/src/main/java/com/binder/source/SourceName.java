@@ -2,41 +2,98 @@ package com.binder.source;
 
 
 import com.binder.element.Element;
-import lombok.*;
+import com.binder.util.Constants;
 
 /**
- * 用于标识一个配置项的name，用于区别不同{@link Element}的配置信息
+ * name identifies a configuration item and distinguishes different configuration information<br>
+ * {@link Element}
  */
-@Getter
-@Setter
-@ToString
-@NoArgsConstructor
 public class SourceName {
 
     /**
-     * 配置项整体的前缀
+     * Prefix of the configuration item as a whole
      */
     String prefix;
 
     /**
-     * 单个元素的标识
+     * The identity of a single element
      */
-    String ElementName;
+    String elementName;
 
     /**
-     * 元素的序号，针对数组和集合提供的索引序号，如果是-1，则不是数组和集合类型
+     * The element's ordinal number, the index number provided for arrays and collections.<br>
+     * If it is -1, it is not an array or collection type
      */
     Integer index;
 
     /**
-     * 可以唯一确定的值
+     * A value that can be uniquely determined
      */
     Object obj;
 
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getElementName() {
+        return elementName;
+    }
+
+    public void setElementName(String elementName) {
+        this.elementName = elementName;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public Object getObj() {
+        return obj;
+    }
+
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
+
+    public SourceName() {
+    }
+
     public SourceName(String prefix, String elementName, Integer index, Object obj) {
         this.prefix = prefix;
-        ElementName = elementName;
+        this.elementName = elementName;
         this.index = index;
         this.obj = obj;
+    }
+
+    /**
+     * prefix + elementName
+     */
+    public String getFullName() {
+        return prefix + "." + elementName;
+    }
+
+    /**
+     * prefix + elementName + [index], if index = -1, the  result like to getFullName
+     */
+    public String getQualifiedName() {
+        if (index == -1) {
+            return getFullName();
+        }
+        return getFullName() + Constants.LEFT_BRACKETS + index + Constants.RIGHT_BRACKETS;
+    }
+
+    /**
+     * Convert Obj to String
+     */
+    public String objToString() {
+        return String.valueOf(obj);
     }
 }

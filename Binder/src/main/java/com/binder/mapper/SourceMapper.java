@@ -18,15 +18,15 @@
 package com.binder.mapper;
 
 /**
- * @author Create by liuwenhao on 2022/10/12 17:04
+ * The key of the mapping
  */
 public interface SourceMapper {
 
     /**
-     * key的转换
+     * The key of conversion
      *
-     * @param s 转换前的key
-     * @return 转换后的key
+     * @param s key before conversion
+     * @return The converted key
      */
     String convert(String s);
 

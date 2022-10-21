@@ -18,53 +18,45 @@
 package com.binder.element;
 
 import com.binder.source.Source;
+import com.binder.source.SourceName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 支持的类型元素
+ * Supported type elements
  *
  * @author Create by liuwenhao on 2022/10/12 16:05
  */
 public interface Element {
 
     /**
-     * 元素解析的枚举
+     * Enumeration of element resolution
      *
      * @return ElementEnum
      */
-    default ElementEnum supportType() {
-        return null;
-    }
+    ElementEnum supportType();
 
     /**
-     * 支持的元素类型
+     * Parsing Configuration Information
      *
-     * @return List<Class < ?>>
+     * @param fullName full name
+     * @param e        A single configuration item
+     * @param cls      target class
+     * @param <T>      The type obtained after parsing
+     * @return T The parsed type
      */
-    default List<Class<?>> supportClasses() {
-        return new ArrayList<>();
-    }
-
-    /**
-     * 解析配置信息
-     *
-     * @param e   单个的配置项
-     * @param <T> 解析后获得的类型
-     * @return T 解析后的类型
-     */
-    default <T> T parser(Source e) {
-        return null;
+    default <T> T parser(String fullName, List<SourceName> e, Class<T> cls) {
+        Object obj = e.stream()
+                .filter(s -> s.getFullName().equals(fullName))
+                .findFirst()
+                .orElse(new SourceName())
+                .getObj();
+        return cls.cast(obj);
     }
 
     enum ElementEnum {
 
-        STRING,
-
         ARRAY,
-
-        PRIMITIVE,
 
         COLLECTION,
 

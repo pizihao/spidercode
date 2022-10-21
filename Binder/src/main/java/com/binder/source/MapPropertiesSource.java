@@ -29,31 +29,26 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 配置信息的解析和处理
- *
- * @author Create by liuwenhao on 2022/10/12 16:33
+ * Configuration information parsing and processing
  */
 public class MapPropertiesSource implements Source {
 
     /**
-     * 拉取到的配置信息
+     * The obtained configuration information is displayed
      */
     Map<String, Object> map = new HashMap<>();
 
     /**
-     * 占位符和特殊符号的处理，通过{@code $，{，}，#}的标识的信息<br>
+     * Placeholders and special symbols are handled by {@code $, {,}} to identify the information<br>
      * <ol>
-     *     <li>调用方法：{@code ${java.util.time.LocalDateTime#now()}}，需要通过()进行标识</li>
-     *     <li>调用属性：{@code ${cn.hippo4j.config.springboot.starter.binder.source.MapPropertiesSource#map}}</li>
-     *     <li>引用上下文：{@code ${spring.application.name}}</li>
+     *     <li>Context of reference：{@code ${spring.application.name}}</li>
      * </ol>
-     * 通过占位符标识时会优先取得当前配置中可以获取的项，如果没有再以方法的形式去解析<br>
-     * 占位符是支持嵌套的
+     * A placeholder identifier will take items that are available in the current configuration, which can be nested<br>
      */
-    PlaceholdersResolver placeholdersResolver = new PlaceholdersResolver();
+    PlaceholdersResolver placeholdersResolver;
 
     /**
-     * 配置项
+     * Configuration items
      */
     List<SourceName> sourceNames = new LinkedList<>();
 
@@ -72,12 +67,21 @@ public class MapPropertiesSource implements Source {
         this.prefix = prefix;
         transMap(map, prefix, sourceMapper);
         buildSource();
+        this.placeholdersResolver = new PlaceholdersResolver(this.sourceNames);
+        this.sourceNames = placeholdersResolver.getSourceName();
     }
 
     public MapPropertiesSource(Map<String, Object> map, String prefix) {
         this(map, new DefaultSourceMapper(), prefix);
     }
 
+    /**
+     * The transformation extracts configuration information
+     *
+     * @param cumbersomeMap properties source
+     * @param prefix        the prefix
+     * @param sourceMapper  Map processing
+     */
     private void transMap(Map<String, Object> cumbersomeMap, String prefix, SourceMapper sourceMapper) {
         cumbersomeMap.forEach((s, o) -> {
             boolean startWith = StringUtil.startWith(s, prefix);
@@ -89,6 +93,9 @@ public class MapPropertiesSource implements Source {
         });
     }
 
+    /**
+     * Convert to SourceName, note the placeholder
+     */
     private void buildSource() {
         this.map.forEach((s, o) -> {
             if (s.contains(Constants.LEFT_BRACKETS) && s.contains(Constants.RIGHT_BRACKETS)) {
@@ -117,6 +124,7 @@ public class MapPropertiesSource implements Source {
 
     @Override
     public <T> T getResult(Class<T> cls) {
+
         return null;
     }
 

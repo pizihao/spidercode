@@ -21,33 +21,33 @@ package com.binder.source;
 import java.util.List;
 
 /**
- * @author Create by liuwenhao on 2022/10/12 16:31
+ *
  */
 public interface Source {
 
     /**
-     * 配置源的整体前缀
+     * Configure the overall prefix of the source
      *
      * @return prefix
      */
     String getPrefix();
 
     /**
-     * 解析后的结果<br>
-     * 结果是{@link com.binder.element.Element.ElementEnum}中的定义<br>
-     * 如果是基本数据类型，则会通过其包装类型处理<br>
-     * cls 必须可以被以无参的形式实例化
+     * The result after parsing<br>
+     * The result is defined in {@link com.binder.element.Element.ElementEnum}<br>
+     * If it is a primitive data type, it is processed by its wrapper type<br>
+     * cls Must be able to be instantiated without arguments
      *
-     * @param cls 解析后对应的类
+     * @param cls The corresponding class after parsing
      * @return obj
      * @
      */
     <T> T getResult(Class<T> cls);
 
     /**
-     * 获取解析后的配置集合
+     * Gets the parsed configuration collection
      *
-     * @return 配置集合
+     * @return Configuration Collection
      */
     List<SourceName> getSourceValue();
 

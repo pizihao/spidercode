@@ -21,4 +21,8 @@ package com.binder.element;
  * @author Create by liuwenhao on 2022/10/12 16:12
  */
 public class CollectionElement implements Element {
+    @Override
+    public ElementEnum supportType() {
+        return ElementEnum.COLLECTION;
+    }
 }
