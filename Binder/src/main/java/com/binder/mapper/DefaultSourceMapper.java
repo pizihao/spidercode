@@ -36,8 +36,8 @@ public class DefaultSourceMapper implements SourceMapper {
         // In the case of array, the data in [] is divided, and then concatenated after conversion
         String elementName;
         String suffix;
-        if (s.contains(Constants.LEFT_BRACKETS) && s.contains(Constants.RIGHT_BRACKETS)) {
-            int leftIndex = s.indexOf(Constants.LEFT_BRACKETS);
+        if (s.contains(Constants.EQUAL)) {
+            int leftIndex = s.indexOf(Constants.EQUAL);
             elementName = s.substring(0, leftIndex);
             suffix = s.substring(leftIndex);
         } else {

@@ -17,9 +17,9 @@
 
 package com.binder.element;
 
-import com.binder.source.Source;
 import com.binder.source.SourceName;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -28,6 +28,15 @@ import java.util.List;
  * @author Create by liuwenhao on 2022/10/12 16:05
  */
 public interface Element {
+    Element objectElement = new ObjectElement();
+    Element simpleElement = new SimpleElement();
+    Element arrayElement = new ArrayElement();
+    Element collectionElement = new CollectionElement();
+    Element mapElement = new MapElement();
+
+    static <T> T getResult(String elementName, List<SourceName> sourceNames, Type type) {
+        return objectElement.parser(elementName, sourceNames, type);
+    }
 
     /**
      * Enumeration of element resolution
@@ -39,19 +48,20 @@ public interface Element {
     /**
      * Parsing Configuration Information
      *
-     * @param fullName full name
-     * @param e        A single configuration item
-     * @param cls      target class
-     * @param <T>      The type obtained after parsing
+     * @param name name
+     * @param e    A single configuration item
+     * @param type target class
+     * @param <T>  The type obtained after parsing
      * @return T The parsed type
      */
-    default <T> T parser(String fullName, List<SourceName> e, Class<T> cls) {
+    @SuppressWarnings("unchecked")
+    default <T> T parser(String name, List<SourceName> e, Type type) {
         Object obj = e.stream()
-                .filter(s -> s.getFullName().equals(fullName))
+                .filter(s -> s.getSimpleName().equals(name))
                 .findFirst()
                 .orElse(new SourceName())
                 .getObj();
-        return cls.cast(obj);
+        return (T) ((Class<?>) type).cast(obj);
     }
 
     enum ElementEnum {
@@ -59,6 +69,8 @@ public interface Element {
         ARRAY,
 
         COLLECTION,
+
+        SIMPLE,
 
         OBJECT,
 

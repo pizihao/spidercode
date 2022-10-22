@@ -46,6 +46,8 @@ public class Constants {
 
     public static final String RIGHT_BRACKETS = "]";
 
+    public static final String EQUAL = "=";
+
     public static final String UP = "UP";
 
     public static final String ENCODE = "UTF-8";

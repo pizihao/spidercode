@@ -17,16 +17,16 @@
 
 package com.binder.source;
 
+import cn.hutool.core.util.ArrayUtil;
 import com.binder.PlaceholdersResolver;
+import com.binder.element.Element;
 import com.binder.mapper.DefaultSourceMapper;
 import com.binder.mapper.SourceMapper;
 import com.binder.util.Constants;
 import com.binder.util.StringUtil;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Field;
+import java.util.*;
 
 /**
  * Configuration information parsing and processing
@@ -88,7 +88,7 @@ public class MapPropertiesSource implements Source {
             if (startWith) {
                 String key = StringUtil.replace(s, prefix + Constants.SPOT, Constants.NULL);
                 String convertKey = sourceMapper.convert(key);
-                this.map.put(key, convertKey);
+                this.map.put(convertKey, o);
             }
         });
     }
@@ -97,24 +97,61 @@ public class MapPropertiesSource implements Source {
      * Convert to SourceName, note the placeholder
      */
     private void buildSource() {
-        this.map.forEach((s, o) -> {
-            if (s.contains(Constants.LEFT_BRACKETS) && s.contains(Constants.RIGHT_BRACKETS)) {
-                int leftIndex = s.indexOf(Constants.LEFT_BRACKETS);
-                int rightIndex = s.lastIndexOf(Constants.RIGHT_BRACKETS);
-                String elementName = s.substring(0, leftIndex);
+        this.map.forEach((s, o) -> this.sourceNames.add(extract(s, "", o)));
+    }
+
+    private SourceName extract(String s, String supplement, Object o) {
+        if (!s.contains(Constants.LEFT_BRACKETS) || !s.contains(Constants.RIGHT_BRACKETS)) {
+            return new SourceName(prefix + supplement, s, -1, o);
+        } else {
+            // the first
+            int leftFirstIndex = s.indexOf(Constants.LEFT_BRACKETS);
+            int rightFirstIndex = s.indexOf(Constants.RIGHT_BRACKETS);
+            // the last
+            int leftLastIndex = s.lastIndexOf(Constants.LEFT_BRACKETS);
+            int rightLastIndex = s.lastIndexOf(Constants.RIGHT_BRACKETS);
+            if (leftLastIndex == leftFirstIndex && rightLastIndex == rightFirstIndex && s.endsWith(Constants.RIGHT_BRACKETS)) {
+                String elementName = s.substring(0, leftFirstIndex);
                 int index;
                 try {
-                    index = Integer.parseInt(s.substring(leftIndex + 1, rightIndex));
+                    index = Integer.parseInt(s.substring(leftFirstIndex + 1, rightFirstIndex));
                 } catch (NumberFormatException e) {
                     index = -1;
                 }
-                SourceName sourceName = new SourceName(prefix, elementName, index, o);
-                sourceNames.add(sourceName);
+                return new SourceName(prefix + supplement, elementName, index, o);
             } else {
-                SourceName sourceName = new SourceName(prefix, s, -1, o);
-                sourceNames.add(sourceName);
+                String nextOne = s.substring(rightFirstIndex + 2);
+                String nextSupplement = s.substring(0, rightFirstIndex + 1);
+                SourceName sourceName = extract(nextOne, "." + nextSupplement, o);
+                this.sourceNames.add(sourceName);
+                return new SourceName(prefix + supplement, nextSupplement, -1, sourceName);
             }
+        }
+    }
+
+    public static void main(String[] args) {
+        Map<String, Object> a = new HashMap<>();
+        a.put("spring.dynamic.thread-pool.notify-platforms[0].platform", "WECHAT");
+        a.put("spring.dynamic.thread-pool.notify-platforms[0].secret-key", "ac0426a5-c712-474c-9bff-72b8b8f5caff");
+        a.put("spring.dynamic.thread-pool.notify-platforms[1].platform", "DING");
+        a.put("spring.dynamic.thread-pool.notify-platforms[1].secret-key", "56417ebba6a27ca352f0de77a2ae9da66d01f39610b5ee8a6033c60ef9071c55");
+        a.put("spring.dynamic.thread-pool.notify-platforms[2].platform", "LARK");
+        a.put("spring.dynamic.thread-pool.notify-platforms[2].secret-key", "2cbf2808-3839-4c26-a04d-fd201dd51f9e");
+        a.put("spring.dynamic.thread-pool.executors[0]", "message-consume");
+        a.put("spring.dynamic.thread-pool.executors[1]", "message-prudcet");
+
+        MapPropertiesSource source = new MapPropertiesSource(a, "spring.dynamic.thread-pool");
+        source.sourceNames.forEach(s -> {
+            System.out.println(s.getQualifiedName());
+            System.out.println(s.getElementName());
+            System.out.println(s.getSimpleName());
+            System.out.println("=============");
         });
+        System.out.println(source.sourceNames.size());
+
+
+        System.out.println(Integer.class.isPrimitive());
+
     }
 
     @Override
@@ -124,12 +161,12 @@ public class MapPropertiesSource implements Source {
 
     @Override
     public <T> T getResult(Class<T> cls) {
-
-        return null;
+        return Element.getResult(cls.getSimpleName(), sourceNames, cls);
     }
 
     @Override
     public List<SourceName> getSourceValue() {
         return sourceNames;
     }
+
 }

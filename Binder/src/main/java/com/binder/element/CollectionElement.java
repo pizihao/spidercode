@@ -17,6 +17,12 @@
 
 package com.binder.element;
 
+import com.binder.source.SourceName;
+
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.List;
+
 /**
  * @author Create by liuwenhao on 2022/10/12 16:12
  */
@@ -24,5 +30,13 @@ public class CollectionElement implements Element {
     @Override
     public ElementEnum supportType() {
         return ElementEnum.COLLECTION;
+    }
+
+    @Override
+    public <T> T parser(String name, List<SourceName> e, Type type) {
+        if (type instanceof ParameterizedType){
+        }
+
+        return Element.super.parser(name, e, type);
     }
 }

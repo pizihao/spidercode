@@ -35,9 +35,9 @@ public class PlaceholdersResolver {
 
     public static final String SUFFIX = "}";
 
-    Map<String, SourceName> map = new HashMap<>();
+    Map<String, List<SourceName>> map = new HashMap<>();
 
-    Map<String, SourceName> middleMap = new HashMap<>();
+    Map<String, List<SourceName>> middleMap = new HashMap<>();
 
     /**
      * order
@@ -54,7 +54,9 @@ public class PlaceholdersResolver {
         this.sourceNames = sourceNames;
         sourceNames.forEach(s -> {
             String qualifiedName = s.getQualifiedName();
-            map.put(qualifiedName, s);
+            List<SourceName> sourceNameList = map.getOrDefault(qualifiedName, new ArrayList<>());
+            sourceNameList.add(s);
+            map.put(qualifiedName, sourceNameList);
         });
     }
 
@@ -68,6 +70,7 @@ public class PlaceholdersResolver {
         return sourceNames.stream()
                 .map(s -> this.map.get(s.getQualifiedName()))
                 .filter(Objects::nonNull)
+                .flatMap(Collection::stream)
                 .collect(Collectors.toList());
     }
 
@@ -76,14 +79,15 @@ public class PlaceholdersResolver {
      */
     private void placeholderHandle() {
         while (hasPlaceholder()) {
-            this.map.forEach((s, sourceName) -> {
-                SourceName handle = handle(sourceName);
-                middleMap.put(s, handle);
-            });
+            this.map.forEach((s, sourceName) -> middleMap.put(s, handle(sourceName)));
             if (middleMap.isEmpty()) {
                 break;
             }
-            this.map.putAll(middleMap);
+            this.middleMap.forEach((k, v) -> {
+                List<SourceName> sourceNameList = this.map.getOrDefault(k, new ArrayList<>());
+                sourceNameList.addAll(v);
+                this.map.put(k, sourceNameList);
+            });
             middleMap.clear();
         }
     }
@@ -94,42 +98,47 @@ public class PlaceholdersResolver {
      * @return has placeholder
      */
     private boolean hasPlaceholder() {
-        for (SourceName sourceName : this.map.values()) {
+        List<SourceName> sourceNameList = this.map.values()
+                .stream().flatMap(Collection::stream)
+                .collect(Collectors.toList());
+        for (SourceName sourceName : sourceNameList) {
             String objStr = sourceName.objToString();
             if (objStr.contains(PREFIX) && objStr.contains(SUFFIX)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     /**
      * check sourceName, If a placeholder exists, it is processed
      *
-     * @param sourceName ole sourceName
+     * @param sourceNames ole sourceName
      * @return new sourceName
      */
-    private SourceName handle(SourceName sourceName) {
-        String objStr = sourceName.objToString();
-        if (!objStr.contains(PREFIX) || !objStr.contains(SUFFIX)) {
+    private List<SourceName> handle(List<SourceName> sourceNames) {
+        return sourceNames.stream().map(sourceName -> {
+            String objStr = sourceName.objToString();
+            if (!objStr.contains(PREFIX) || !objStr.contains(SUFFIX)) {
+                return sourceName;
+            }
+            // the first and the last
+            int leftIndex = objStr.indexOf(PREFIX);
+            int rightIndex = objStr.lastIndexOf(SUFFIX);
+            String s = objStr.substring(leftIndex, rightIndex);
+            // universal
+            SourceName name = map.get(s).get(0);
+            if (name != null) {
+                sourceName.setObj(name.getObj());
+            }
+            // special
+            String prefix = s.split("\\.")[0];
+            Function<String, Object> function = objMap.get(prefix);
+            if (function != null) {
+                sourceName.setObj(function.apply(s));
+            }
             return sourceName;
-        }
-        // the first and the last
-        int leftIndex = objStr.indexOf(PREFIX);
-        int rightIndex = objStr.lastIndexOf(SUFFIX);
-        String s = objStr.substring(leftIndex, rightIndex);
-        // universal
-        SourceName name = map.get(s);
-        if (name != null) {
-            sourceName.setObj(name.getObj());
-        }
-        // special
-        String prefix = s.split("\\.")[0];
-        Function<String, Object> function = objMap.get(prefix);
-        if (function != null) {
-            sourceName.setObj(function.apply(s));
-        }
-        return sourceName;
+        }).collect(Collectors.toList());
     }
 
 }

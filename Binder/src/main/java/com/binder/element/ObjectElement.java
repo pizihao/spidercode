@@ -1,28 +1,60 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one or more
- * contributor license agreements.  See the NOTICE file distributed with
- * this work for additional information regarding copyright ownership.
- * The ASF licenses this file to You under the Apache License, Version 2.0
- * (the "License"); you may not use this file except in compliance with
- * the License.  You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.binder.element;
 
-/**
- * @author Create by liuwenhao on 2022/10/12 16:21
- */
+import cn.hutool.core.util.ReflectUtil;
+import com.binder.source.SourceName;
+import com.binder.util.BeanUtil;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.*;
+
 public class ObjectElement implements Element {
     @Override
     public ElementEnum supportType() {
         return ElementEnum.OBJECT;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public <T> T parser(String name, List<SourceName> e, Type type) {
+        Class<T> cls = (Class<T>) type;
+        if (cls.isPrimitive()) {
+            return simpleElement.parser(name, e, cls);
+        }
+        if (cls.isArray()) {
+            return arrayElement.parser(name, e, cls);
+        }
+        if (Collection.class.isAssignableFrom(cls)) {
+            return collectionElement.parser(name, e, cls);
+        }
+        if (Map.class.isAssignableFrom(cls)) {
+            return mapElement.parser(name, e, cls);
+        }
+        List<Field> fields = getFields(cls);
+        try {
+            T instance = cls.newInstance();
+            fields.forEach(f -> {
+                String fieldName = f.getName();
+                Object parser = objectElement.parser(fieldName, e, f.getType());
+                Method setter = BeanUtil.setter(cls, fieldName);
+                ReflectUtil.invoke(instance, setter, parser);
+            });
+            return instance;
+        } catch (InstantiationException | IllegalAccessException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+
+    private List<Field> getFields(Class<?> beanClass) {
+        List<Field> allFields = new ArrayList<>();
+        Class<?> searchType = beanClass;
+        while (searchType != null) {
+            Field[] fields = searchType.getDeclaredFields();
+            allFields.addAll(Arrays.asList(fields));
+            searchType = searchType.getSuperclass();
+        }
+        return allFields;
     }
 }

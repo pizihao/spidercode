@@ -90,10 +90,28 @@ public class SourceName {
         return getFullName() + Constants.LEFT_BRACKETS + index + Constants.RIGHT_BRACKETS;
     }
 
+    public String getSimpleName() {
+        if (elementName.contains(Constants.LEFT_BRACKETS) && elementName.contains(Constants.RIGHT_BRACKETS)) {
+            int left = elementName.indexOf(Constants.LEFT_BRACKETS);
+            return elementName.substring(0, left);
+        }
+        return elementName;
+    }
+
     /**
      * Convert Obj to String
      */
     public String objToString() {
         return String.valueOf(obj);
+    }
+
+    @Override
+    public String toString() {
+        return "SourceName{" +
+                "prefix='" + prefix + '\'' +
+                ", elementName='" + elementName + '\'' +
+                ", index=" + index +
+                ", obj=" + obj +
+                '}';
     }
 }

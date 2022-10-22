@@ -17,17 +17,12 @@
 
 package com.binder.element;
 
-import com.binder.source.SourceName;
-
-import java.util.List;
-
 /**
- * @author Create by liuwenhao on 2022/10/12 16:06
+ * @author Create by liuwenhao on 2022/10/12 16:21
  */
-public class ArrayElement implements Element {
+public class SimpleElement implements Element {
     @Override
     public ElementEnum supportType() {
-        return ElementEnum.ARRAY;
+        return ElementEnum.SIMPLE;
     }
-
 }
