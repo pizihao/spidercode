@@ -17,15 +17,15 @@
 
 package com.binder.source;
 
-import cn.hutool.core.util.ArrayUtil;
 import com.binder.PlaceholdersResolver;
 import com.binder.element.Element;
 import com.binder.mapper.DefaultSourceMapper;
 import com.binder.mapper.SourceMapper;
+import com.binder.special.Special;
+import com.binder.tes.BootstrapConfigProperties;
 import com.binder.util.Constants;
 import com.binder.util.StringUtil;
 
-import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -62,17 +62,26 @@ public class MapPropertiesSource implements Source {
      */
     String prefix;
 
-    public MapPropertiesSource(Map<String, Object> map, SourceMapper sourceMapper, String prefix) {
+    public MapPropertiesSource(Map<String, Object> map, SourceMapper sourceMapper, String prefix, List<Special<?>> specials) {
         this.sourceMapper = sourceMapper;
         this.prefix = prefix;
         transMap(map, prefix, sourceMapper);
         buildSource();
-        this.placeholdersResolver = new PlaceholdersResolver(this.sourceNames);
+        this.placeholdersResolver = new PlaceholdersResolver(this.sourceNames, specials);
         this.sourceNames = placeholdersResolver.getSourceName();
     }
 
+    public MapPropertiesSource(Map<String, Object> map, SourceMapper sourceMapper, String prefix) {
+        this(map, sourceMapper, prefix, null);
+    }
+
     public MapPropertiesSource(Map<String, Object> map, String prefix) {
-        this(map, new DefaultSourceMapper(), prefix);
+        this(map, new DefaultSourceMapper(), prefix, null);
+    }
+
+
+    public MapPropertiesSource(Map<String, Object> map, String prefix, List<Special<?>> specials) {
+        this(map, new DefaultSourceMapper(), prefix, specials);
     }
 
     /**
@@ -101,56 +110,101 @@ public class MapPropertiesSource implements Source {
     }
 
     private SourceName extract(String s, String supplement, Object o) {
+        if (s.contains(Constants.SPOT)) {
+            int index = s.indexOf(Constants.SPOT);
+            supplement = Constants.SPOT + s.substring(0, index);
+            s = s.substring(index + 1);
+        }
         if (!s.contains(Constants.LEFT_BRACKETS) || !s.contains(Constants.RIGHT_BRACKETS)) {
             return new SourceName(prefix + supplement, s, -1, o);
-        } else {
-            // the first
-            int leftFirstIndex = s.indexOf(Constants.LEFT_BRACKETS);
-            int rightFirstIndex = s.indexOf(Constants.RIGHT_BRACKETS);
-            // the last
-            int leftLastIndex = s.lastIndexOf(Constants.LEFT_BRACKETS);
-            int rightLastIndex = s.lastIndexOf(Constants.RIGHT_BRACKETS);
-            if (leftLastIndex == leftFirstIndex && rightLastIndex == rightFirstIndex && s.endsWith(Constants.RIGHT_BRACKETS)) {
-                String elementName = s.substring(0, leftFirstIndex);
-                int index;
-                try {
-                    index = Integer.parseInt(s.substring(leftFirstIndex + 1, rightFirstIndex));
-                } catch (NumberFormatException e) {
-                    index = -1;
-                }
-                return new SourceName(prefix + supplement, elementName, index, o);
-            } else {
-                String nextOne = s.substring(rightFirstIndex + 2);
-                String nextSupplement = s.substring(0, rightFirstIndex + 1);
-                SourceName sourceName = extract(nextOne, "." + nextSupplement, o);
-                this.sourceNames.add(sourceName);
-                return new SourceName(prefix + supplement, nextSupplement, -1, sourceName);
+        }
+        // the first
+        int leftFirstIndex = s.indexOf(Constants.LEFT_BRACKETS);
+        int rightFirstIndex = s.indexOf(Constants.RIGHT_BRACKETS);
+        // the last
+        int leftLastIndex = s.lastIndexOf(Constants.LEFT_BRACKETS);
+        int rightLastIndex = s.lastIndexOf(Constants.RIGHT_BRACKETS);
+        if (leftLastIndex == leftFirstIndex && rightLastIndex == rightFirstIndex && s.endsWith(Constants.RIGHT_BRACKETS)) {
+            String elementName = s.substring(0, leftFirstIndex);
+            int index;
+            try {
+                index = Integer.parseInt(s.substring(leftFirstIndex + 1, rightFirstIndex));
+            } catch (NumberFormatException e) {
+                index = -1;
             }
+            return new SourceName(prefix + supplement, elementName, index, o);
+        } else {
+            String nextOne = s.substring(rightFirstIndex + 2);
+            String nextSupplement = s.substring(0, rightFirstIndex + 1);
+            SourceName sourceName = extract(nextOne, "." + nextSupplement, o);
+            this.sourceNames.add(sourceName);
+            return new SourceName(prefix + supplement, nextSupplement, -1, sourceName);
         }
     }
 
     public static void main(String[] args) {
         Map<String, Object> a = new HashMap<>();
+        a.put("spring.application.name", "threadPool");
+        a.put("spring.dynamic.thread-pool.active-alarm", 80);
+        a.put("spring.dynamic.thread-pool.alarm", false);
+        a.put("spring.dynamic.thread-pool.alarm-interval", 8);
+        a.put("spring.dynamic.thread-pool.banner", true);
+        a.put("spring.dynamic.thread-pool.capacity-alarm", 80);
+        a.put("spring.dynamic.thread-pool.check-state-interval", 3000);
+        a.put("spring.dynamic.thread-pool.collect", true);
+        a.put("spring.dynamic.thread-pool.config-file-type", "yaml");
+        a.put("spring.dynamic.thread-pool.enable", false);
+        a.put("spring.dynamic.thread-pool.executors[0].active-alarm", 80);
+        a.put("spring.dynamic.thread-pool.executors[0].alarm", true);
+        a.put("spring.dynamic.thread-pool.executors[0].allow-core-thread-time-out", true);
+        a.put("spring.dynamic.thread-pool.executors[0].blocking-queue", "LinkedBlockingQueue");
+        a.put("spring.dynamic.thread-pool.executors[0].capacity-alarm", 80);
+        a.put("spring.dynamic.thread-pool.executors[0].core-pool-size", 1);
+        a.put("spring.dynamic.thread-pool.executors[0].execute-time-out", 1000);
+        a.put("spring.dynamic.thread-pool.executors[0].keep-alive-time", 1024);
+        a.put("spring.dynamic.thread-pool.executors[0].maximum-pool-size", 1);
+        a.put("spring.dynamic.thread-pool.executors[0].queue-capacity", 1);
+        a.put("spring.dynamic.thread-pool.executors[0].rejected-handler", "AbortPolicy");
+        a.put("spring.dynamic.thread-pool.executors[0].thread-name-prefix", "message-consume");
+        a.put("spring.dynamic.thread-pool.executors[0].thread-pool-id", "message-consume");
+        a.put("spring.dynamic.thread-pool.executors[1].active-alarm", 80);
+        a.put("spring.dynamic.thread-pool.executors[1].alarm", true);
+        a.put("spring.dynamic.thread-pool.executors[1].allow-core-thread-time-out", true);
+        a.put("spring.dynamic.thread-pool.executors[1].blocking-queue", "LinkedBlockingQueue");
+        a.put("spring.dynamic.thread-pool.executors[1].capacity-alarm", 80);
+        a.put("spring.dynamic.thread-pool.executors[1].core-pool-size", 3);
+        a.put("spring.dynamic.thread-pool.executors[1].execute-time-out", 1000);
+        a.put("spring.dynamic.thread-pool.executors[1].keep-alive-time", 1024);
+        a.put("spring.dynamic.thread-pool.executors[1].maximum-pool-size", 10);
+        a.put("spring.dynamic.thread-pool.executors[1].nodes", "192.168.137.1:58866");
+        a.put("spring.dynamic.thread-pool.executors[1].queue-capacity", 1);
+        a.put("spring.dynamic.thread-pool.executors[1].rejected-handler", "AbortPolicy");
+        a.put("spring.dynamic.thread-pool.executors[1].thread-name-prefix", "message-produce");
+        a.put("spring.dynamic.thread-pool.executors[1].thread-pool-id", "message-produce");
+        a.put("spring.dynamic.thread-pool.nacos.data-id", "AbortPolicy");
+        a.put("spring.dynamic.thread-pool.nacos.group", "DEFAULT_GROUP");
         a.put("spring.dynamic.thread-pool.notify-platforms[0].platform", "WECHAT");
-        a.put("spring.dynamic.thread-pool.notify-platforms[0].secret-key", "ac0426a5-c712-474c-9bff-72b8b8f5caff");
+        a.put("spring.dynamic.thread-pool.notify-platforms[0].token", "xxx");
         a.put("spring.dynamic.thread-pool.notify-platforms[1].platform", "DING");
-        a.put("spring.dynamic.thread-pool.notify-platforms[1].secret-key", "56417ebba6a27ca352f0de77a2ae9da66d01f39610b5ee8a6033c60ef9071c55");
+        a.put("spring.dynamic.thread-pool.notify-platforms[1].secret", "xxx");
+        a.put("spring.dynamic.thread-pool.notify-platforms[1].token", "xxx");
         a.put("spring.dynamic.thread-pool.notify-platforms[2].platform", "LARK");
-        a.put("spring.dynamic.thread-pool.notify-platforms[2].secret-key", "2cbf2808-3839-4c26-a04d-fd201dd51f9e");
-        a.put("spring.dynamic.thread-pool.executors[0]", "message-consume");
-        a.put("spring.dynamic.thread-pool.executors[1]", "message-prudcet");
+        a.put("spring.dynamic.thread-pool.notify-platforms[2].token", "xxx");
+        a.put("spring.dynamic.thread-pool.tomcat.core-pool-size", .120);
+        a.put("spring.dynamic.thread-pool.tomcat.enable", true);
+        a.put("spring.dynamic.thread-pool.tomcat.keep-alive-time", 1007);
+        a.put("spring.dynamic.thread-pool.tomcat.maximum-pool-size", 200);
+        a.put("spring.dynamic.thread-pool.tomcat.nodes", "*:*");
 
         MapPropertiesSource source = new MapPropertiesSource(a, "spring.dynamic.thread-pool");
         source.sourceNames.forEach(s -> {
-            System.out.println(s.getQualifiedName());
-            System.out.println(s.getElementName());
-            System.out.println(s.getSimpleName());
-            System.out.println("=============");
+            if (s.getIndex() != -1) {
+                System.out.println(s.getQualifiedName());
+            }
         });
-        System.out.println(source.sourceNames.size());
 
-
-        System.out.println(Integer.class.isPrimitive());
+        BootstrapConfigProperties result = source.getResult(BootstrapConfigProperties.class);
+        System.out.println(result);
 
     }
 
@@ -161,7 +215,7 @@ public class MapPropertiesSource implements Source {
 
     @Override
     public <T> T getResult(Class<T> cls) {
-        return Element.getResult(cls.getSimpleName(), sourceNames, cls);
+        return Element.getResult(prefix, cls.getSimpleName(), sourceNames, cls);
     }
 
     @Override

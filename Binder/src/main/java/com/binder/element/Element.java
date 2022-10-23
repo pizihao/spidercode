@@ -33,9 +33,10 @@ public interface Element {
     Element arrayElement = new ArrayElement();
     Element collectionElement = new CollectionElement();
     Element mapElement = new MapElement();
+    Element enumElement = new EnumElement();
 
-    static <T> T getResult(String elementName, List<SourceName> sourceNames, Type type) {
-        return objectElement.parser(elementName, sourceNames, type);
+    static <T> T getResult(String prefix, String elementName, List<SourceName> sourceNames, Type type) {
+        return objectElement.parser(prefix, elementName, sourceNames, type);
     }
 
     /**
@@ -55,18 +56,53 @@ public interface Element {
      * @return T The parsed type
      */
     @SuppressWarnings("unchecked")
-    default <T> T parser(String name, List<SourceName> e, Type type) {
-        Object obj = e.stream()
+    default <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
+        SourceName sourceName = e.stream()
+                .filter(s -> s.getFullName().equals(prefix))
                 .filter(s -> s.getSimpleName().equals(name))
                 .findFirst()
-                .orElse(new SourceName())
-                .getObj();
-        return (T) ((Class<?>) type).cast(obj);
+                .orElse(new SourceName());
+        Object obj = sourceName.getObj();
+        if (obj == null) {
+            return null;
+        }
+
+        return (T) obj;
+        /*
+         Class<?> cls = (Class<?>) type;
+        String s = (String) obj;
+        if (cls.isAssignableFrom(Integer.class)) {
+            return (T) Integer.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Long.class)) {
+            return (T) Long.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Double.class)) {
+            return (T) Double.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Float.class)) {
+            return (T) Float.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Character.class)) {
+            return (T) Character.valueOf(s.charAt(0));
+        }
+        if (cls.isAssignableFrom(Short.class)) {
+            return (T) Short.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Byte.class)) {
+            return (T) Byte.valueOf(s);
+        }
+        if (cls.isAssignableFrom(Boolean.class)) {
+            return (T) Boolean.valueOf(s);
+        }
+        return (T) cls.cast(obj);*/
     }
 
     enum ElementEnum {
 
         ARRAY,
+
+        ENUM,
 
         COLLECTION,
 

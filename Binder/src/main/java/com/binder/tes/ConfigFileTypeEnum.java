@@ -15,27 +15,58 @@
  * limitations under the License.
  */
 
-package com.binder.element;
+package com.binder.tes;
 
-import com.binder.source.SourceName;
-
-import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.List;
+import lombok.Getter;
 
 /**
- * @author Create by liuwenhao on 2022/10/12 16:06
+ * Config file type enum
  */
-public class ArrayElement implements Element {
-    @Override
-    public ElementEnum supportType() {
-        return ElementEnum.ARRAY;
+@Getter
+public enum ConfigFileTypeEnum {
+
+    /**
+     * PROPERTIES
+     */
+    PROPERTIES("properties"),
+
+    /**
+     * XML
+     */
+    XML("xml"),
+
+    /**
+     * JSON
+     */
+    JSON("json"),
+
+    /**
+     * YML
+     */
+    YML("yml"),
+
+    /**
+     * YAML
+     */
+    YAML("yaml"),
+
+    /**
+     * TXT
+     */
+    TXT("txt");
+
+    private final String value;
+
+    ConfigFileTypeEnum(String value) {
+        this.value = value;
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
-        Collection<Object> parser = collectionElement.parser(prefix, name, e, type);
-        return (T) parser.toArray();
+    public static ConfigFileTypeEnum of(String value) {
+        for (ConfigFileTypeEnum typeEnum : ConfigFileTypeEnum.values()) {
+            if (typeEnum.value.equals(value)) {
+                return typeEnum;
+            }
+        }
+        return PROPERTIES;
     }
 }

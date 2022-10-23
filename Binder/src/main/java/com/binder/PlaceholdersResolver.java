@@ -19,9 +19,9 @@ package com.binder;
 
 import com.binder.source.SourceName;
 import com.binder.special.RandomSpecial;
+import com.binder.special.Special;
 
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -44,17 +44,22 @@ public class PlaceholdersResolver {
      */
     List<SourceName> sourceNames;
 
-    static Map<String, Function<String, Object>> objMap = new HashMap<>();
-
-    static {
-        objMap.put("random", new RandomSpecial(new Random()));
-    }
+    static Map<String, Special<?>> objMap = new HashMap<>();
 
     public PlaceholdersResolver(List<SourceName> sourceNames) {
+        this(sourceNames, null);
+        RandomSpecial special = new RandomSpecial();
+        objMap.put(special.getPrefix(), special);
+    }
+
+    public PlaceholdersResolver(List<SourceName> sourceNames, List<Special<?>> specials) {
+        if (specials != null) {
+            specials.forEach(special -> objMap.put(special.getPrefix(), special));
+        }
         this.sourceNames = sourceNames;
         sourceNames.forEach(s -> {
             String qualifiedName = s.getQualifiedName();
-            List<SourceName> sourceNameList = map.getOrDefault(qualifiedName, new ArrayList<>());
+            List<SourceName> sourceNameList = map.getOrDefault(qualifiedName, new LinkedList<>());
             sourceNameList.add(s);
             map.put(qualifiedName, sourceNameList);
         });
@@ -71,6 +76,7 @@ public class PlaceholdersResolver {
                 .map(s -> this.map.get(s.getQualifiedName()))
                 .filter(Objects::nonNull)
                 .flatMap(Collection::stream)
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -84,7 +90,7 @@ public class PlaceholdersResolver {
                 break;
             }
             this.middleMap.forEach((k, v) -> {
-                List<SourceName> sourceNameList = this.map.getOrDefault(k, new ArrayList<>());
+                List<SourceName> sourceNameList = this.map.getOrDefault(k, new LinkedList<>());
                 sourceNameList.addAll(v);
                 this.map.put(k, sourceNameList);
             });
@@ -133,9 +139,9 @@ public class PlaceholdersResolver {
             }
             // special
             String prefix = s.split("\\.")[0];
-            Function<String, Object> function = objMap.get(prefix);
-            if (function != null) {
-                sourceName.setObj(function.apply(s));
+            Special<?> special = objMap.get(prefix);
+            if (special != null) {
+                sourceName.setObj(special.apply(s));
             }
             return sourceName;
         }).collect(Collectors.toList());

@@ -21,7 +21,10 @@ import com.binder.source.SourceName;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author Create by liuwenhao on 2022/10/12 16:12
@@ -33,10 +36,26 @@ public class CollectionElement implements Element {
     }
 
     @Override
-    public <T> T parser(String name, List<SourceName> e, Type type) {
-        if (type instanceof ParameterizedType){
+    @SuppressWarnings("unchecked")
+    public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
+        boolean b = type instanceof ParameterizedType;
+        if (!b) {
+            // is not ParameterizedType, It's impossible to parse
+            return null;
         }
+        // group for index
+        Map<Integer, List<SourceName>> map = e.stream()
+                .filter(s -> s.getSimpleName().equals(name))
+                .collect(Collectors.groupingBy(SourceName::getIndex));
+        ParameterizedType parameterizedType = (ParameterizedType) type;
+        Type[] typeArguments = parameterizedType.getActualTypeArguments();
+        List<Object> list = new LinkedList<>();
+        if (typeArguments.length > 0) {
+            Type typeArgument = typeArguments[0];
+            Class<?> cls = (Class<?>) typeArgument;
+            map.forEach((i, s) -> list.add(objectElement.parser(prefix, name, s, cls)));
 
-        return Element.super.parser(name, e, type);
+        }
+        return (T) list;
     }
 }

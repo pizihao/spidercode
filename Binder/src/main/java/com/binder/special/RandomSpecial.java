@@ -6,18 +6,22 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 import java.util.UUID;
-import java.util.function.Function;
 
 /**
  * For the special case of random number processing
  */
-public class RandomSpecial implements Function<String, Object> {
+public class RandomSpecial implements Special<Object> {
 
     private static final String PREFIX = "random.";
     Random random;
 
-    public RandomSpecial(Random random) {
-        this.random = random;
+    public RandomSpecial() {
+        this.random = new Random();
+    }
+
+    @Override
+    public String getPrefix() {
+        return PREFIX;
     }
 
     public Object getProperty(String name) {

@@ -3,6 +3,9 @@ package com.binder.source;
 
 import com.binder.element.Element;
 import com.binder.util.Constants;
+import com.binder.util.StringUtil;
+
+import java.util.Objects;
 
 /**
  * name identifies a configuration item and distinguishes different configuration information<br>
@@ -77,7 +80,11 @@ public class SourceName {
      * prefix + elementName
      */
     public String getFullName() {
-        return prefix + "." + elementName;
+        return prefix + "." + StringUtil.toSymbolCase(elementName,'-');
+    }
+
+    public String getOriginalName() {
+        return StringUtil.toSymbolCase(elementName,'-');
     }
 
     /**
@@ -113,5 +120,18 @@ public class SourceName {
                 ", index=" + index +
                 ", obj=" + obj +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SourceName that = (SourceName) o;
+        return Objects.equals(prefix, that.prefix) && Objects.equals(elementName, that.elementName) && Objects.equals(index, that.index) && Objects.equals(obj, that.obj);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prefix, elementName, index, obj);
     }
 }

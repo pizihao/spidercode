@@ -15,27 +15,25 @@
  * limitations under the License.
  */
 
-package com.binder.element;
-
-import com.binder.source.SourceName;
-
-import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.List;
+package com.binder.tes;
 
 /**
- * @author Create by liuwenhao on 2022/10/12 16:06
+ * Monitor thread-pool type enum.
  */
-public class ArrayElement implements Element {
-    @Override
-    public ElementEnum supportType() {
-        return ElementEnum.ARRAY;
-    }
+public enum MonitorThreadPoolTypeEnum {
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
-        Collection<Object> parser = collectionElement.parser(prefix, name, e, type);
-        return (T) parser.toArray();
-    }
+    /**
+     * Dynamic thread-pool
+     */
+    DYNAMIC,
+
+    /**
+     * Web thread-pool
+     */
+    WEB,
+
+    /**
+     * Adapter thread-pool
+     */
+    ADAPTER
 }

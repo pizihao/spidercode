@@ -26,7 +26,7 @@ import com.binder.util.StringUtil;
 public class DefaultSourceMapper implements SourceMapper {
 
     /**
-     * By default, the - symbol and _ symbol are converted to humps
+     * By default, the - symbol are converted to humps
      *
      * @param s key before conversion
      * @return The transformed key, hump form
@@ -44,7 +44,7 @@ public class DefaultSourceMapper implements SourceMapper {
             elementName = s;
             suffix = Constants.NULL;
         }
-        String camelCase = StringUtil.toCamelCase(StringUtil.toCamelCase(elementName, '_'), '-');
+        String camelCase = StringUtil.toCamelCase(elementName, '-');
         return camelCase + suffix;
     }
 }
