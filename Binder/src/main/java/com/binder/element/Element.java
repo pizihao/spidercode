@@ -20,6 +20,7 @@ package com.binder.element;
 import com.binder.source.SourceName;
 
 import java.lang.reflect.Type;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -28,15 +29,29 @@ import java.util.List;
  * @author Create by liuwenhao on 2022/10/12 16:05
  */
 public interface Element {
-    Element objectElement = new ObjectElement();
-    Element simpleElement = new SimpleElement();
-    Element arrayElement = new ArrayElement();
-    Element collectionElement = new CollectionElement();
-    Element mapElement = new MapElement();
-    Element enumElement = new EnumElement();
+    // order
+    List<Element> elements = new LinkedList<>();
+
+    static List<Element> getElement() {
+        if (elements.isEmpty()) {
+            elements.add(new SimpleElement());
+            elements.add(new EnumElement());
+            elements.add(new ArrayElement());
+            elements.add(new CollectionElement());
+            elements.add(new MapElement());
+            elements.add(new ObjectElement());
+        }
+        return elements;
+    }
 
     static <T> T getResult(String prefix, String elementName, List<SourceName> sourceNames, Type type) {
-        return objectElement.parser(prefix, elementName, sourceNames, type);
+        T t = null;
+        for (Element element : elements) {
+            if (element.isSupport(type)) {
+                t = element.parser(prefix, elementName, sourceNames, type);
+            }
+        }
+        return t;
     }
 
     /**
@@ -45,6 +60,8 @@ public interface Element {
      * @return ElementEnum
      */
     ElementEnum supportType();
+
+    boolean isSupport(Type type);
 
     /**
      * Parsing Configuration Information
@@ -63,39 +80,7 @@ public interface Element {
                 .findFirst()
                 .orElse(new SourceName());
         Object obj = sourceName.getObj();
-        if (obj == null) {
-            return null;
-        }
-
-        return (T) obj;
-        /*
-         Class<?> cls = (Class<?>) type;
-        String s = (String) obj;
-        if (cls.isAssignableFrom(Integer.class)) {
-            return (T) Integer.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Long.class)) {
-            return (T) Long.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Double.class)) {
-            return (T) Double.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Float.class)) {
-            return (T) Float.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Character.class)) {
-            return (T) Character.valueOf(s.charAt(0));
-        }
-        if (cls.isAssignableFrom(Short.class)) {
-            return (T) Short.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Byte.class)) {
-            return (T) Byte.valueOf(s);
-        }
-        if (cls.isAssignableFrom(Boolean.class)) {
-            return (T) Boolean.valueOf(s);
-        }
-        return (T) cls.cast(obj);*/
+        return (obj == null ? null : (T) obj);
     }
 
     enum ElementEnum {

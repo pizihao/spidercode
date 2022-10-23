@@ -32,6 +32,11 @@ public class ObjectElement implements Element {
     }
 
     @Override
+    public boolean isSupport(Type type) {
+        return true;
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
         Class<T> cls;
@@ -62,7 +67,7 @@ public class ObjectElement implements Element {
             fields.forEach(f -> {
                 String fieldName = f.getName();
                 String nextPrefix = prefix + "." + StringUtil.toSymbolCase(fieldName, '-');
-                Object parser = objectElement.parser(nextPrefix, fieldName, e, f.getGenericType());
+                Object parser = Element.getResult(nextPrefix, fieldName, e, f.getGenericType());
                 Method setter = BeanUtil.setter(cls, fieldName);
                 if (parser == null) {
                     Method getter = BeanUtil.getter(cls, fieldName);
