@@ -15,10 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
-
-import lombok.Getter;
-import lombok.Setter;
+package tes;
 
 import java.util.List;
 import java.util.Map;

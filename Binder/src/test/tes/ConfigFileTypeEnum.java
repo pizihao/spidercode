@@ -15,16 +15,58 @@
  * limitations under the License.
  */
 
-package com.binder.util;
+package tes;
+
+import lombok.Getter;
 
 /**
- * Matcher.
+ * Config file type enum
  */
-@FunctionalInterface
-public interface Matcher<T> {
+@Getter
+public enum ConfigFileTypeEnum {
 
     /**
-     * Returns {@code true} if this matches {@code t}, {@code false} otherwise.
+     * PROPERTIES
      */
-    boolean match(T t);
+    PROPERTIES("properties"),
+
+    /**
+     * XML
+     */
+    XML("xml"),
+
+    /**
+     * JSON
+     */
+    JSON("json"),
+
+    /**
+     * YML
+     */
+    YML("yml"),
+
+    /**
+     * YAML
+     */
+    YAML("yaml"),
+
+    /**
+     * TXT
+     */
+    TXT("txt");
+
+    private final String value;
+
+    ConfigFileTypeEnum(String value) {
+        this.value = value;
+    }
+
+    public static ConfigFileTypeEnum of(String value) {
+        for (ConfigFileTypeEnum typeEnum : ConfigFileTypeEnum.values()) {
+            if (typeEnum.value.equals(value)) {
+                return typeEnum;
+            }
+        }
+        return PROPERTIES;
+    }
 }

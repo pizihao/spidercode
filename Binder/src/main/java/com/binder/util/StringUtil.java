@@ -25,43 +25,9 @@ import java.util.regex.Pattern;
  */
 public class StringUtil {
 
-    public static final String EMPTY = "";
-
-    public static final char UNDERLINE = '_';
 
     public static final String[] EMPTY_ARRAY = new String[0];
 
-    /**
-     * Returns the given string if it is nonempty; {@code null} otherwise.
-     *
-     * @param str
-     * @return
-     */
-    public static String emptyToNull(String str) {
-        return (str == null || str.isEmpty()) ? null : str;
-    }
-
-    /**
-     * Returns the given string if it is non-null; the empty string otherwise.
-     *
-     * @param str
-     * @return
-     */
-    public static String nullToEmpty(String str) {
-        return str == null ? "" : str;
-    }
-
-    /**
-     * Returns {@code true} if the given string is null or is the empty string.
-     *
-     * this method has been deprecated, use isEmpty() instead.
-     * @param str
-     * @return
-     */
-    @Deprecated
-    public static boolean isNullOrEmpty(String str) {
-        return str == null || str.isEmpty();
-    }
 
     /**
      * Is blank.
@@ -97,64 +63,6 @@ public class StringUtil {
         return str == null || str.length() == 0;
     }
 
-    /**
-     * Is not empty.
-     *
-     * @param str
-     * @return
-     */
-    public static boolean isNotEmpty(CharSequence str) {
-        return !isEmpty(str);
-    }
-
-    /**
-     * Is not blank.
-     *
-     * @param str
-     * @return
-     */
-    public static boolean isNotBlank(CharSequence str) {
-        return !isBlank(str);
-    }
-
-    /**
-     * Is all not empty.
-     *
-     * @param args
-     * @return
-     */
-    public static boolean isAllNotEmpty(CharSequence... args) {
-        return !hasEmpty(args);
-    }
-
-    /**
-     * Has empty.
-     *
-     * @param strList
-     * @return
-     */
-    public static boolean hasEmpty(CharSequence... strList) {
-        if (ArrayUtil.isEmpty(strList)) {
-            return true;
-        }
-
-        for (CharSequence str : strList) {
-            if (isEmpty(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * To underline case.
-     *
-     * @param str
-     * @return
-     */
-    public static String toUnderlineCase(CharSequence str) {
-        return toSymbolCase(str, UNDERLINE);
-    }
 
     /**
      * To symbol case.
@@ -227,18 +135,6 @@ public class StringUtil {
         return sb.toString();
     }
 
-    /**
-     * combination CharSequence, get a String
-     *
-     * @param charSequences CharSequence, if null or empty, get {@link StringUtil#EMPTY}
-     * @return String
-     */
-    public static String newBuilder(CharSequence... charSequences) {
-        if (charSequences == null || charSequences.length == 0) {
-            return StringUtil.EMPTY;
-        }
-        return createBuilder(charSequences).toString();
-    }
 
     /**
      * combination CharSequence, get a StringBuilder
@@ -257,25 +153,6 @@ public class StringUtil {
         return builder;
     }
 
-    /**
-     * combination CharSequence, to StringBuilder
-     *
-     * @param builder       StringBuilder, if null create a new
-     * @param charSequences CharSequence
-     * @return StringBuilder
-     */
-    public static StringBuilder appends(StringBuilder builder, CharSequence... charSequences) {
-        if (builder == null) {
-            return createBuilder(charSequences);
-        }
-        if (charSequences == null || charSequences.length == 0) {
-            return builder;
-        }
-        for (CharSequence sequence : charSequences) {
-            builder.append(sequence);
-        }
-        return builder;
-    }
 
     /**
      * Replace a portion of the string, replacing all found
@@ -331,29 +208,5 @@ public class StringUtil {
             return false;
         }
         return str.startsWith(prefix);
-    }
-
-    /**
-     * get the string before the delimiter
-     *
-     * @param str    string
-     * @param symbol separator
-     * @return String
-     */
-    public static String subBefore(String str, String symbol) {
-        if (isEmpty(str) || symbol == null) {
-            return str;
-        }
-        if (symbol.isEmpty()) {
-            return EMPTY;
-        }
-        int pos = str.indexOf(symbol);
-        if (-1 == pos) {
-            return str;
-        }
-        if (0 == pos) {
-            return EMPTY;
-        }
-        return str.substring(0, pos);
     }
 }

@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
-
-import lombok.Data;
+package tes;
 
 /**
  * Notify platform properties.

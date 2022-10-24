@@ -15,24 +15,14 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
+package tes;
 
 import lombok.Data;
 
 /**
- * Adapter executor properties.
+ * Web thread pool properties.
  */
-public class AdapterExecutorProperties {
-
-    /**
-     * Mark
-     */
-    private String mark;
-
-    /**
-     * Thread-pool key
-     */
-    private String threadPoolKey;
+public class WebThreadPoolProperties {
 
     /**
      * Core pool size
@@ -45,6 +35,11 @@ public class AdapterExecutorProperties {
     private Integer maximumPoolSize;
 
     /**
+     * Keep alive time
+     */
+    private Integer keepAliveTime;
+
+    /**
      * Nodes, application startup is not affect, change properties is effect
      */
     private String nodes;
@@ -53,22 +48,6 @@ public class AdapterExecutorProperties {
      * these propertied is enabled?
      */
     private Boolean enable = true;
-
-    public String getMark() {
-        return mark;
-    }
-
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
-    public String getThreadPoolKey() {
-        return threadPoolKey;
-    }
-
-    public void setThreadPoolKey(String threadPoolKey) {
-        this.threadPoolKey = threadPoolKey;
-    }
 
     public Integer getCorePoolSize() {
         return corePoolSize;
@@ -84,6 +63,14 @@ public class AdapterExecutorProperties {
 
     public void setMaximumPoolSize(Integer maximumPoolSize) {
         this.maximumPoolSize = maximumPoolSize;
+    }
+
+    public Integer getKeepAliveTime() {
+        return keepAliveTime;
+    }
+
+    public void setKeepAliveTime(Integer keepAliveTime) {
+        this.keepAliveTime = keepAliveTime;
     }
 
     public String getNodes() {
@@ -104,11 +91,10 @@ public class AdapterExecutorProperties {
 
     @Override
     public String toString() {
-        return "AdapterExecutorProperties{" +
-                "mark='" + mark + '\'' +
-                ", threadPoolKey='" + threadPoolKey + '\'' +
-                ", corePoolSize=" + corePoolSize +
+        return "WebThreadPoolProperties{" +
+                "corePoolSize=" + corePoolSize +
                 ", maximumPoolSize=" + maximumPoolSize +
+                ", keepAliveTime=" + keepAliveTime +
                 ", nodes='" + nodes + '\'' +
                 ", enable=" + enable +
                 '}';

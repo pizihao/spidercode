@@ -15,13 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+package tes;
 
 /**
  * Executor properties.

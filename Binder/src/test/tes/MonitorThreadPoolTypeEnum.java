@@ -15,58 +15,25 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
-
-import lombok.Getter;
+package tes;
 
 /**
- * Config file type enum
+ * Monitor thread-pool type enum.
  */
-@Getter
-public enum ConfigFileTypeEnum {
+public enum MonitorThreadPoolTypeEnum {
 
     /**
-     * PROPERTIES
+     * Dynamic thread-pool
      */
-    PROPERTIES("properties"),
+    DYNAMIC,
 
     /**
-     * XML
+     * Web thread-pool
      */
-    XML("xml"),
+    WEB,
 
     /**
-     * JSON
+     * Adapter thread-pool
      */
-    JSON("json"),
-
-    /**
-     * YML
-     */
-    YML("yml"),
-
-    /**
-     * YAML
-     */
-    YAML("yaml"),
-
-    /**
-     * TXT
-     */
-    TXT("txt");
-
-    private final String value;
-
-    ConfigFileTypeEnum(String value) {
-        this.value = value;
-    }
-
-    public static ConfigFileTypeEnum of(String value) {
-        for (ConfigFileTypeEnum typeEnum : ConfigFileTypeEnum.values()) {
-            if (typeEnum.value.equals(value)) {
-                return typeEnum;
-            }
-        }
-        return PROPERTIES;
-    }
+    ADAPTER
 }

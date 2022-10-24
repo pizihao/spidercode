@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder.tes;
+package tes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
