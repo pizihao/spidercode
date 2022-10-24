@@ -17,6 +17,7 @@
 
 package com.binder.element;
 
+import com.binder.ElementUnit;
 import com.binder.source.SourceName;
 
 import java.lang.reflect.ParameterizedType;
@@ -29,10 +30,6 @@ import java.util.stream.Collectors;
  * @author Create by liuwenhao on 2022/10/12 16:12
  */
 public class MapElement implements Element {
-    @Override
-    public ElementEnum supportType() {
-        return ElementEnum.MAP;
-    }
 
     @Override
     public boolean isSupport(Type type) {
@@ -46,8 +43,13 @@ public class MapElement implements Element {
 
     @Override
     @SuppressWarnings("unchecked")
-    public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
-        boolean b = type instanceof ParameterizedType;
+    public <T> T parser(ElementUnit elementUnit, Elements elements) {
+        if (!elements.isSupport(this)) {
+            return null;
+        }
+        boolean b = elementUnit.getType() instanceof ParameterizedType;
+        List<SourceName> e = elementUnit.getSourceNames();
+        String prefix = elementUnit.getPrefix();
         if (!b) {
             // is not ParameterizedType, It's impossible to parse
             return null;
@@ -59,6 +61,5 @@ public class MapElement implements Element {
                         SourceName::getObj,
                         (f, l) -> f
                 ));
-
     }
 }

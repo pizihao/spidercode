@@ -17,8 +17,10 @@
 
 package com.binder.source;
 
+import com.binder.ElementUnit;
 import com.binder.PlaceholdersResolver;
 import com.binder.element.Element;
+import com.binder.element.Elements;
 import com.binder.mapper.DefaultSourceMapper;
 import com.binder.mapper.SourceMapper;
 import com.binder.special.Special;
@@ -214,8 +216,9 @@ public class MapPropertiesSource implements Source {
     }
 
     @Override
-    public <T> T getResult(Class<T> cls) {
-        return Element.getResult(prefix, cls.getSimpleName(), sourceNames, cls);
+    public <T> T getResult(Class<T> cls, Elements elements) {
+        ElementUnit elementUnit = new ElementUnit(prefix, cls.getSimpleName(), sourceNames, cls);
+        return elements.getResult(elementUnit);
     }
 
     @Override

@@ -42,11 +42,6 @@ public class SimpleElement implements Element {
     }
 
     @Override
-    public ElementEnum supportType() {
-        return ElementEnum.SIMPLE;
-    }
-
-    @Override
     public boolean isSupport(Type type) {
         if (type instanceof ParameterizedType) {
             return false;

@@ -18,6 +18,8 @@
 package com.binder.source;
 
 
+import com.binder.element.Elements;
+
 import java.util.List;
 
 /**
@@ -42,7 +44,12 @@ public interface Source {
      * @return obj
      * @
      */
-    <T> T getResult(Class<T> cls);
+    default <T> T getResult(Class<T> cls) {
+        Elements elements = new Elements();
+        return getResult(cls, elements);
+    }
+
+    <T> T getResult(Class<T> cls, Elements elements);
 
     /**
      * Gets the parsed configuration collection

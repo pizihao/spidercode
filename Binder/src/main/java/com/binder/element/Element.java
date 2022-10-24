@@ -17,10 +17,10 @@
 
 package com.binder.element;
 
+import com.binder.ElementUnit;
 import com.binder.source.SourceName;
 
 import java.lang.reflect.Type;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -29,51 +29,25 @@ import java.util.List;
  * @author Create by liuwenhao on 2022/10/12 16:05
  */
 public interface Element {
-    // order
-    List<Element> elements = new LinkedList<>();
-
-    static List<Element> getElement() {
-        if (elements.isEmpty()) {
-            elements.add(new SimpleElement());
-            elements.add(new EnumElement());
-            elements.add(new ArrayElement());
-            elements.add(new CollectionElement());
-            elements.add(new MapElement());
-            elements.add(new ObjectElement());
-        }
-        return elements;
-    }
-
-    static <T> T getResult(String prefix, String elementName, List<SourceName> sourceNames, Type type) {
-        T t = null;
-        for (Element element : elements) {
-            if (element.isSupport(type)) {
-                t = element.parser(prefix, elementName, sourceNames, type);
-            }
-        }
-        return t;
-    }
-
-    /**
-     * Enumeration of element resolution
-     *
-     * @return ElementEnum
-     */
-    ElementEnum supportType();
 
     boolean isSupport(Type type);
 
     /**
      * Parsing Configuration Information
      *
-     * @param name name
-     * @param e    A single configuration item
-     * @param type target class
-     * @param <T>  The type obtained after parsing
+     * @param elementUnit prefix and name
+     * @param elements    all element
+     * @param <T>         The type obtained after parsing
      * @return T The parsed type
      */
     @SuppressWarnings("unchecked")
-    default <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
+    default <T> T parser(ElementUnit elementUnit, Elements elements) {
+        if (!elements.isSupport(this)) {
+            return null;
+        }
+        List<SourceName> e = elementUnit.getSourceNames();
+        String prefix = elementUnit.getPrefix();
+        String name = elementUnit.getPrefix();
         SourceName sourceName = e.stream()
                 .filter(s -> s.getFullName().equals(prefix))
                 .filter(s -> s.getSimpleName().equals(name))
@@ -83,19 +57,4 @@ public interface Element {
         return (obj == null ? null : (T) obj);
     }
 
-    enum ElementEnum {
-
-        ARRAY,
-
-        ENUM,
-
-        COLLECTION,
-
-        SIMPLE,
-
-        OBJECT,
-
-        MAP;
-
-    }
 }

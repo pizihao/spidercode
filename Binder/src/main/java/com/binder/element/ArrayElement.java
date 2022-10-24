@@ -17,22 +17,16 @@
 
 package com.binder.element;
 
-import com.binder.source.SourceName;
+import com.binder.ElementUnit;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author Create by liuwenhao on 2022/10/12 16:06
  */
 public class ArrayElement implements Element {
-    @Override
-    public ElementEnum supportType() {
-        return ElementEnum.ARRAY;
-    }
-
     @Override
     public boolean isSupport(Type type) {
         if (type instanceof ParameterizedType) {
@@ -43,8 +37,11 @@ public class ArrayElement implements Element {
 
     @Override
     @SuppressWarnings("unchecked")
-    public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
-        Collection<Object> parser = Element.getResult(prefix, name, e, type);
+    public <T> T parser(ElementUnit elementUnit, Elements elements) {
+        if (!elements.isSupport(this)) {
+            return null;
+        }
+        Collection<Object> parser = elements.getResult(elementUnit);
         return (T) parser.toArray();
     }
 }
