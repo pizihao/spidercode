@@ -21,6 +21,7 @@ import com.binder.source.SourceName;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,17 @@ public class CollectionElement implements Element {
     @Override
     public ElementEnum supportType() {
         return ElementEnum.COLLECTION;
+    }
+
+    @Override
+    public boolean isSupport(Type type) {
+        Class<?> cls;
+        if (type instanceof ParameterizedType) {
+            cls = (Class<?>) ((ParameterizedType) type).getRawType();
+        } else {
+            cls = (Class<?>) type;
+        }
+        return Collection.class.isAssignableFrom(cls);
     }
 
     @Override
@@ -53,7 +65,7 @@ public class CollectionElement implements Element {
         if (typeArguments.length > 0) {
             Type typeArgument = typeArguments[0];
             Class<?> cls = (Class<?>) typeArgument;
-            map.forEach((i, s) -> list.add(objectElement.parser(prefix, name, s, cls)));
+            map.forEach((i, s) -> list.add(Element.getResult(prefix, name, s, cls)));
 
         }
         return (T) list;

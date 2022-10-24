@@ -21,7 +21,6 @@ import com.binder.source.SourceName;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -36,6 +35,16 @@ public class MapElement implements Element {
     }
 
     @Override
+    public boolean isSupport(Type type) {
+        if (type instanceof ParameterizedType) {
+            Class<?> cls = (Class<?>) ((ParameterizedType) type).getRawType();
+            return Map.class.isAssignableFrom(cls);
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
         boolean b = type instanceof ParameterizedType;
@@ -43,9 +52,6 @@ public class MapElement implements Element {
             // is not ParameterizedType, It's impossible to parse
             return null;
         }
-        ParameterizedType parameterizedType = (ParameterizedType) type;
-        Type[] typeArguments = parameterizedType.getActualTypeArguments();
-        Map<?, ?> map = new HashMap<>();
         return (T) e.stream()
                 .filter(s -> s.getPrefix().equals(prefix))
                 .collect(Collectors.toMap(

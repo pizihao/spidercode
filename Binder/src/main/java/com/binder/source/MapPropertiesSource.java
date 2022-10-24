@@ -53,12 +53,12 @@ public class MapPropertiesSource implements Source {
     List<SourceName> sourceNames = new LinkedList<>();
 
     /**
-     * 映射机制
+     * map for key
      */
     SourceMapper sourceMapper;
 
     /**
-     * 前缀
+     * prefix
      */
     String prefix;
 
@@ -196,8 +196,8 @@ public class MapPropertiesSource implements Source {
         a.put("spring.dynamic.thread-pool.tomcat.maximum-pool-size", 200);
         a.put("spring.dynamic.thread-pool.tomcat.nodes", "*:*");
 
-        MapPropertiesSource source = new MapPropertiesSource(a, "spring.dynamic.thread-pool");
-        source.sourceNames.forEach(s -> {
+        Source source = new MapPropertiesSource(a, "spring.dynamic.thread-pool");
+        source.getSourceValue().forEach(s -> {
             if (s.getIndex() != -1) {
                 System.out.println(s.getQualifiedName());
             }

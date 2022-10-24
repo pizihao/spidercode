@@ -19,6 +19,7 @@ package com.binder.element;
 
 import com.binder.source.SourceName;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
@@ -33,9 +34,17 @@ public class ArrayElement implements Element {
     }
 
     @Override
+    public boolean isSupport(Type type) {
+        if (type instanceof ParameterizedType) {
+            return false;
+        }
+        return ((Class<?>) type).isArray();
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public <T> T parser(String prefix, String name, List<SourceName> e, Type type) {
-        Collection<Object> parser = collectionElement.parser(prefix, name, e, type);
+        Collection<Object> parser = Element.getResult(prefix, name, e, type);
         return (T) parser.toArray();
     }
 }
