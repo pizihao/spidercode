@@ -2,8 +2,8 @@ package com.binder.source;
 
 
 import com.binder.element.Element;
+import com.binder.mapper.SourceMapper;
 import com.binder.util.Constants;
-import com.binder.util.StringUtil;
 
 import java.util.Objects;
 
@@ -33,6 +33,8 @@ public class SourceName {
      * A value that can be uniquely determined
      */
     Object obj;
+
+    SourceMapper sourceMapper;
 
     public String getPrefix() {
         return prefix;
@@ -66,25 +68,34 @@ public class SourceName {
         this.obj = obj;
     }
 
+    public SourceMapper getSourceMapper() {
+        return sourceMapper;
+    }
+
+    public void setSourceMapper(SourceMapper sourceMapper) {
+        this.sourceMapper = sourceMapper;
+    }
+
     public SourceName() {
     }
 
-    public SourceName(String prefix, String elementName, Integer index, Object obj) {
+    public SourceName(String prefix, String elementName, Integer index, Object obj, SourceMapper sourceMapper) {
         this.prefix = prefix;
         this.elementName = elementName;
         this.index = index;
         this.obj = obj;
+        this.sourceMapper = sourceMapper;
     }
 
     /**
      * prefix + elementName
      */
     public String getFullName() {
-        return prefix + "." + StringUtil.toSymbolCase(elementName,'-');
+        return prefix + "." + sourceMapper.reverseConvert(elementName);
     }
 
     public String getOriginalName() {
-        return StringUtil.toSymbolCase(elementName,'-');
+        return sourceMapper.reverseConvert(elementName);
     }
 
     /**

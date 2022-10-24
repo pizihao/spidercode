@@ -31,13 +31,12 @@ public class Elements {
 
     public <T> T getResult(ElementUnit elementUnit) {
         Type type = elementUnit.getType();
-        T t = null;
         for (Element element : elements) {
             if (element.isSupport(type)) {
-                t = element.parser(elementUnit, this);
+                return element.parser(elementUnit, this);
             }
         }
-        return t;
+        return null;
     }
 
     public boolean isSupport(Element element) {
@@ -45,10 +44,10 @@ public class Elements {
             Class<? extends Element> cls = e.getClass();
             Class<? extends Element> elementCls = element.getClass();
             if (cls.equals(elementCls)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 }

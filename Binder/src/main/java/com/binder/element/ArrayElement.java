@@ -38,7 +38,7 @@ public class ArrayElement implements Element {
     @Override
     @SuppressWarnings("unchecked")
     public <T> T parser(ElementUnit elementUnit, Elements elements) {
-        if (!elements.isSupport(this)) {
+        if (elements.isSupport(this)) {
             return null;
         }
         Collection<Object> parser = elements.getResult(elementUnit);

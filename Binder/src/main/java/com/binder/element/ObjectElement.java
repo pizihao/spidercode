@@ -12,15 +12,33 @@ import java.util.stream.Collectors;
 
 public class ObjectElement implements Element {
 
+    List<Class<?>> simple = new LinkedList<>();
+
+    public ObjectElement() {
+        simple.add(Integer.class);
+        simple.add(Float.class);
+        simple.add(Character.class);
+        simple.add(Long.class);
+        simple.add(Double.class);
+        simple.add(Short.class);
+        simple.add(Boolean.class);
+        simple.add(Byte.class);
+        simple.add(String.class);
+    }
+
     @Override
     public boolean isSupport(Type type) {
-        return !(type instanceof ParameterizedType);
+        if (type instanceof ParameterizedType) {
+            return false;
+        }
+        Class<?> cls = (Class<?>) type;
+        return !isSimple(cls);
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public <T> T parser(ElementUnit elementUnit, Elements elements) {
-        if (!elements.isSupport(this)) {
+        if (elements.isSupport(this)) {
             return null;
         }
         String prefix = elementUnit.getPrefix();
@@ -58,5 +76,14 @@ public class ObjectElement implements Element {
         return allFields.stream()
                 .filter(f -> !Modifier.isStatic(f.getModifiers()))
                 .collect(Collectors.toList());
+    }
+
+    private boolean isSimple(Class<?> cls) {
+        for (Class<?> sim : simple) {
+            if (sim.isAssignableFrom(cls)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

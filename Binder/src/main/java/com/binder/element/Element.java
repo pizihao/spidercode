@@ -42,12 +42,12 @@ public interface Element {
      */
     @SuppressWarnings("unchecked")
     default <T> T parser(ElementUnit elementUnit, Elements elements) {
-        if (!elements.isSupport(this)) {
+        if (elements.isSupport(this)) {
             return null;
         }
         List<SourceName> e = elementUnit.getSourceNames();
         String prefix = elementUnit.getPrefix();
-        String name = elementUnit.getPrefix();
+        String name = elementUnit.getName();
         SourceName sourceName = e.stream()
                 .filter(s -> s.getFullName().equals(prefix))
                 .filter(s -> s.getSimpleName().equals(name))

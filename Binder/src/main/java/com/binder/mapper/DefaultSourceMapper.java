@@ -28,7 +28,7 @@ public class DefaultSourceMapper implements SourceMapper {
     /**
      * By default, the - symbol are converted to humps
      *
-     * @param s key before conversion
+     * @param s key before conversion, it is  prefix + key
      * @return The transformed key, hump form
      */
     @Override
@@ -36,8 +36,8 @@ public class DefaultSourceMapper implements SourceMapper {
         // In the case of array, the data in [] is divided, and then concatenated after conversion
         String elementName;
         String suffix;
-        if (s.contains(Constants.EQUAL)) {
-            int leftIndex = s.indexOf(Constants.EQUAL);
+        if (s.endsWith(Constants.RIGHT_BRACKETS)) {
+            int leftIndex = s.lastIndexOf(Constants.LEFT_BRACKETS);
             elementName = s.substring(0, leftIndex);
             suffix = s.substring(leftIndex);
         } else {
@@ -47,4 +47,11 @@ public class DefaultSourceMapper implements SourceMapper {
         String camelCase = StringUtil.toCamelCase(elementName, '-');
         return camelCase + suffix;
     }
+
+    @Override
+    public String reverseConvert(String s) {
+        return StringUtil.toSymbolCase(s, '-');
+    }
+
+
 }

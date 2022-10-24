@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-package tes;
+package com.binder;
+
+import com.binder.AdapterExecutorProperties;
 
 import java.util.List;
 import java.util.Map;

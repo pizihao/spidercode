@@ -116,7 +116,7 @@ public class MapPropertiesSource implements Source {
             s = s.substring(index + 1);
         }
         if (!s.contains(Constants.LEFT_BRACKETS) || !s.contains(Constants.RIGHT_BRACKETS)) {
-            return new SourceName(prefix + supplement, s, -1, o);
+            return new SourceName(prefix + supplement, s, -1, o, sourceMapper);
         }
         // the first
         int leftFirstIndex = s.indexOf(Constants.LEFT_BRACKETS);
@@ -132,13 +132,13 @@ public class MapPropertiesSource implements Source {
             } catch (NumberFormatException e) {
                 index = -1;
             }
-            return new SourceName(prefix + supplement, elementName, index, o);
+            return new SourceName(prefix + supplement, elementName, index, o, sourceMapper);
         } else {
             String nextOne = s.substring(rightFirstIndex + 2);
             String nextSupplement = s.substring(0, rightFirstIndex + 1);
             SourceName sourceName = extract(nextOne, "." + nextSupplement, o);
             this.sourceNames.add(sourceName);
-            return new SourceName(prefix + supplement, nextSupplement, -1, sourceName);
+            return new SourceName(prefix + supplement, nextSupplement, -1, sourceName, sourceMapper);
         }
     }
 

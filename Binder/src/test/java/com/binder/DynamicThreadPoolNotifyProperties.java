@@ -15,58 +15,48 @@
  * limitations under the License.
  */
 
-package tes;
+package com.binder;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * Config file type enum
+ * Dynamic thread-pool notify properties.
  */
-@Getter
-public enum ConfigFileTypeEnum {
+public class DynamicThreadPoolNotifyProperties {
 
     /**
-     * PROPERTIES
+     * Thread pool run alarm interval. unit: s
      */
-    PROPERTIES("properties"),
+    private Integer interval;
 
     /**
-     * XML
+     * Receives
      */
-    XML("xml"),
+    private String receives;
 
-    /**
-     * JSON
-     */
-    JSON("json"),
-
-    /**
-     * YML
-     */
-    YML("yml"),
-
-    /**
-     * YAML
-     */
-    YAML("yaml"),
-
-    /**
-     * TXT
-     */
-    TXT("txt");
-
-    private final String value;
-
-    ConfigFileTypeEnum(String value) {
-        this.value = value;
+    public Integer getInterval() {
+        return interval;
     }
 
-    public static ConfigFileTypeEnum of(String value) {
-        for (ConfigFileTypeEnum typeEnum : ConfigFileTypeEnum.values()) {
-            if (typeEnum.value.equals(value)) {
-                return typeEnum;
-            }
-        }
-        return PROPERTIES;
+    public void setInterval(Integer interval) {
+        this.interval = interval;
+    }
+
+    public String getReceives() {
+        return receives;
+    }
+
+    public void setReceives(String receives) {
+        this.receives = receives;
+    }
+
+    @Override
+    public String toString() {
+        return "DynamicThreadPoolNotifyProperties{" +
+                "interval=" + interval +
+                ", receives='" + receives + '\'' +
+                '}';
     }
 }

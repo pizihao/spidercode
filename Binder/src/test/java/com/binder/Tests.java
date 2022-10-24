@@ -1,4 +1,4 @@
-package tes;
+package com.binder;
 
 import com.binder.source.MapPropertiesSource;
 import com.binder.source.Source;
