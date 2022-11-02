@@ -28,4 +28,9 @@ public class DeriveController {
         return deriveService.select(dto);
     }
 
+    @GetMapping("/selectList")
+    public List<DeriveDO> select(){
+        return null;
+    }
+
 }
