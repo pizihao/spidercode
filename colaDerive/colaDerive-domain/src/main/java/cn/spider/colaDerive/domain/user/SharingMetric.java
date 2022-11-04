@@ -1,7 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
-
 /**
  * SharingMetric
  * 线下技术分享指标

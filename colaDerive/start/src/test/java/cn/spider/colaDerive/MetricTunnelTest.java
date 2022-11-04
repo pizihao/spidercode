@@ -1,9 +1,9 @@
-package com.deep.colaDerive.gatewayimpl;
+package cn.spider.colaDerive;
 
-import com.deep.colaDerive.domain.metrics.MainMetricType;
-import com.deep.colaDerive.domain.metrics.SubMetricType;
-import com.deep.colaDerive.gatewayimpl.database.MetricMapper;
-import com.deep.colaDerive.gatewayimpl.database.dataobject.MetricDO;
+import cn.spider.colaDerive.domain.user.MainMetricType;
+import cn.spider.colaDerive.domain.user.SubMetricType;
+import cn.spider.colaDerive.gatewayimpl.rpc.MetricDO;
+import cn.spider.colaDerive.gatewayimpl.rpc.MetricMapper;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,18 +1,8 @@
 package cn.spider.colaDerive.gatewayimpl.rpc;
 
+import cn.spider.colaDerive.domain.user.*;
 import com.alibaba.cola.logger.Logger;
 import com.alibaba.cola.logger.LoggerFactory;
-import cn.spider.colaDerive.domain.user.MetricGateway;
-import cn.spider.colaDerive.domain.user.MainMetricType;
-import cn.spider.colaDerive.domain.user.MetricItem;
-import cn.spider.colaDerive.domain.user.SubMetric;
-import cn.spider.colaDerive.domain.user.SubMetricType;
-import cn.spider.colaDerive.domain.user.AppMetric;
-import cn.spider.colaDerive.domain.user.AppMetricItem;
-import cn.spider.colaDerive.domain.user.BugMetric;
-import cn.spider.colaDerive.domain.user.BugMetricItem;
-import cn.spider.colaDerive.domain.metrics.techcontribution.*;
-import cn.spider.colaDerive.domain.metrics.techinfluence.*;
 import cn.spider.colaDerive.dto.MetricItemCreatedEvent;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;

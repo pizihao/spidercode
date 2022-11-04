@@ -1,7 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
-import cn.spider.colaDerive.domain.user.Role;
 
 
 /**

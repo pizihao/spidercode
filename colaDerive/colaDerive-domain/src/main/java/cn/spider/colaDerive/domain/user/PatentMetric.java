@@ -1,6 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
 
 /**
  * 技术专利指标

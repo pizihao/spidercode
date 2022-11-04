@@ -1,6 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
 
 /**
  * CodeReview指标

@@ -1,7 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
-
 /**
  * 重构指标
  * @author xueliang.sxl, alisa.hsh, xiangning.lxn

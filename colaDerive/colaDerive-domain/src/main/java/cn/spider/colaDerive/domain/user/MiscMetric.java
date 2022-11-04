@@ -1,7 +1,5 @@
 package cn.spider.colaDerive.domain.user;
 
-import cn.spider.colaDerive.domain.metrics.*;
-
 /**
  * Miscellaneous，其他度量，任何的技术亮点都可以添加
  * @author frankzhang

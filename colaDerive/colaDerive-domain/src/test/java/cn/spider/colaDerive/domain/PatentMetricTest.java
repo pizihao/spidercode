@@ -1,7 +1,6 @@
 package cn.spider.colaDerive.domain;
 
-import cn.spider.colaDerive.domain.metrics.techinfluence.*;
-import cn.spider.colaDerive.domain.user.UserProfile;
+import cn.spider.colaDerive.domain.user.*;
 import org.junit.Assert;
 import org.junit.Test;
 

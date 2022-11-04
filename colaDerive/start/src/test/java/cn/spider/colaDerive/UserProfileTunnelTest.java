@@ -1,7 +1,7 @@
-package com.deep.colaDerive.gatewayimpl;
+package cn.spider.colaDerive;
 
-import com.deep.colaDerive.gatewayimpl.database.UserProfileMapper;
-import com.deep.colaDerive.gatewayimpl.database.dataobject.UserProfileDO;
+import cn.spider.colaDerive.gatewayimpl.rpc.UserProfileDO;
+import cn.spider.colaDerive.gatewayimpl.rpc.UserProfileMapper;
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 

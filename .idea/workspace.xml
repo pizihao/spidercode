@@ -5,170 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="模块管理，新增cola示例">
-      <change afterPath="$PROJECT_DIR$/colaDerive/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/ATAMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/ATAMetricQryExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/CodeReviewMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/MetricDeleteCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/MetricItemCreatedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/MetricsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/MiscMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/PaperMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/PatentMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/RefactoringMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/RefreshScoreCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/SharingMetricAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/UserProfileAddCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/UserProfileGetQryExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/UserProfileListQryExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/UserProfileServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/UserProfileUpdateCmdExe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/test/java/ContextInterceptorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/test/resources/logback-test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/ATAMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/ATAMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/ATAMetricQry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/AbstractMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/CodeReviewMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/CommonCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/CustomerCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/MetricDeleteCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/MetricItemCreatedEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/MetricsServiceI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/MiscMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/MiscMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/PaperMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/PaperMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/PatentMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/PatentMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/RefactoringMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/RefactoringMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/RefreshScoreCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/SharingMetricAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/SharingMetricCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileAddCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileCO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileGetQry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileListQry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileServiceI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-client/src/main/java/cn/spider/colaDerive/dto/UserProfileUpdateCmd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-controller/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-controller/src/main/java/cn/spider/colaDerive/controller/MetricsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/AppMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/AppMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/AppQualityMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/AuthorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ContributionMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/DevQualityMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/DevWeight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/DomainFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/InfluenceMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/JSONPropertyFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MainMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MainMetricType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/Measurable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/Metric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MetricGateway.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/OtherWeight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/QAWeight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetricItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingScope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SubMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SubMetricType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/UserProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/UserProfileGateway.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/Weight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/WeightFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/ATAMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/AppMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/BugMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/InfluenceMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/PatentMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/SharingMetricTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/UserProfileTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/AppMetricDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/AppMetricMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/BaseDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/BizCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/BugMetricDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/BugMetricMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ColaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/DomainEventPublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricConvertor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricGatewayImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/UserProfileConvertor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/UserProfileDO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/UserProfileGatewayImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/UserProfileMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/resources/TableCreationDDL.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/resources/mybatis/MetricMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/resources/mybatis/UserProfileMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/test/java/LoggerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/test/java/Mybatis3Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/test/java/MybatisTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/test/resources/logback-test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/test/resources/mybatis-config-test.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/BasicController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/MybatisDemoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/MybatisDemoUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/MybatisDemoUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/MybatisDemoUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/PathVariableController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/java/cn/spider/colaDerive/demos/web/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/resources/mappers/MybatisDemoUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/main/java/cn/spider/colaDerive/ColaDeriveApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/test/java/MetricTunnelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/test/java/TestApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/test/java/UserProfileTunnelTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/test/java/com/deep/colaDerive/ColaDeriveApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/colaDerive/start/src/test/resources/logback-test.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Binder/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Binder/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flink/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/flink/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsr269/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jsr269/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pizihao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pizihao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springmvc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springmvc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/config/ThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/config/ThreadPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/ATAMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/ATAMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/AppMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/AppMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/BugMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/BugMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/InfluenceMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/InfluenceMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/PatentMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/PatentMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/SharingMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/SharingMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/UserProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/UserProfileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ColaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ColaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricGatewayImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,6 +167,9 @@
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\com" />
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\cn\derive" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cn.spider.colaDerive.domain" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.binder.util" />
     </key>
@@ -347,6 +205,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ColaDeriveApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="start" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.spider.colaDerive.ColaDeriveApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -395,6 +260,7 @@
       <item itemvalue="Application.NewTest4" />
       <item itemvalue="Application.TestController" />
       <item itemvalue="Spring Boot.ColaDeriveApplication" />
+      <item itemvalue="Spring Boot.ColaDeriveApplication (1)" />
       <item itemvalue="Spring Boot.MybatisDeriveApplication" />
       <item itemvalue="Spring Boot.SpringMVCApplication" />
       <item itemvalue="Spring Boot.ThreadPoolApplication" />
@@ -442,7 +308,7 @@
       <workItem from="1667379572625" duration="455000" />
       <workItem from="1667380034875" duration="2895000" />
       <workItem from="1667549969303" duration="2952000" />
-      <workItem from="1667553528527" duration="1094000" />
+      <workItem from="1667553528527" duration="2133000" />
     </task>
     <task id="LOCAL-00001" summary="杂项修改">
       <created>1664291973269</created>
@@ -479,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667380427697</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="模块管理，新增cola示例">
+      <created>1667554852959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667554852959</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
