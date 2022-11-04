@@ -52,12 +52,6 @@ public class ThreadPool {
 
         int corePoolSize = executorService.getCorePoolSize();
 
-        Object a = "a";
-
-        if (a instanceof String s){
-            s.charAt(1);
-        }
-
     }
 
     /**
