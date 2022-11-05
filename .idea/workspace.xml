@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="信息同步">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="模块管理，新增cola示例">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/src/main/java/com/example/mybatisderive/service/impl/DeriveImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/src/main/java/com/example/mybatisderive/service/impl/DeriveImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/package-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-app/src/main/java/cn/spider/colaDerive/command/package-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/ATAMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/BugMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/CodeReviewMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/MiscMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PaperMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/PatentMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/RefactoringMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetric.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/main/java/cn/spider/colaDerive/domain/user/SharingMetric.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/ATAMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/ATAMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/AppMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/AppMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/BugMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/BugMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/InfluenceMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/InfluenceMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/PatentMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/PatentMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/SharingMetricTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/SharingMetricTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/UserProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-domain/src/test/java/cn/spider/colaDerive/domain/UserProfileTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ColaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/ColaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricGatewayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/colaDerive/colaDerive-infrastructure/src/main/java/cn/spider/colaDerive/gatewayimpl/rpc/MetricGatewayImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +80,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="pizihao" />
-                    <option name="lastUsedInstant" value="1665710301" />
+                    <option name="lastUsedInstant" value="1666607273" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -81,16 +95,30 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../../Maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/ExceptionHandler.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../Maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/GetMapping.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../Maven/maven/org/springframework/spring-web/5.2.12.RELEASE/spring-web-5.2.12.RELEASE-sources.jar!/org/springframework/web/bind/annotation/RequestMapping.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../Maven/maven/org/springframework/spring-webmvc/5.2.12.RELEASE/spring-webmvc-5.2.12.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/InterceptorRegistry.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../../Maven/maven/org/springframework/spring-webmvc/5.2.12.RELEASE/spring-webmvc-5.2.12.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ResponseEntityExceptionHandler.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\software\maven\maven" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../maven/apache-maven-3.8.6" />
-        <option name="userSettingsFile" value="D:\software\maven\apache-maven-3.8.6\conf\settings.xml" />
+        <option name="localRepository" value="C:\SoftWare\Maven\maven" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../Maven/apache-maven-3.8.1" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="C:\SoftWare\Maven\apache-maven-3.8.1\conf\settings.xml" />
       </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="downloadSources" />
+        <option value="nova" />
+      </list>
     </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -103,28 +131,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "D:/software/jetbrains/IDEA/project/crow/pom.xml",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.14015748",
-    "project.structure.side.proportion": "0.40275228",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "spring.configuration.checksum": "fe50b7e7833c9c662f1e522201fe09e8"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SoftWare/IDEA/project/spidercode/colaDerive/colaDerive/pom.xml&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14015748&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40275228&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fe50b7e7833c9c662f1e522201fe09e8&quot;
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
@@ -134,8 +163,12 @@
       <recent name="D:\software\IDEA\project\spidercode\Binder" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\SoftWare\IDEA\project\spidercode" />
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\com" />
       <recent name="D:\software\IDEA\project\spidercode\JDK19\src\main\java\cn\derive" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cn.spider.colaDerive.domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.binder.util" />
@@ -176,6 +209,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ColaDeriveApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="start" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.spider.colaDerive.ColaDeriveApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ColaDeriveApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="start" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.deep.colaDerive.ColaDeriveApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MybatisDeriveApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="mybatisDerive.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.mybatisderive.MybatisDeriveApplication" />
@@ -210,8 +257,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestController" />
       <item itemvalue="Application.NewTest4" />
+      <item itemvalue="Application.TestController" />
+      <item itemvalue="Spring Boot.ColaDeriveApplication" />
+      <item itemvalue="Spring Boot.ColaDeriveApplication (1)" />
       <item itemvalue="Spring Boot.MybatisDeriveApplication" />
       <item itemvalue="Spring Boot.SpringMVCApplication" />
       <item itemvalue="Spring Boot.ThreadPoolApplication" />
@@ -219,8 +268,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SpringMVCApplication" />
-        <item itemvalue="Application.TestController" />
-        <item itemvalue="Application.NewTest4" />
         <item itemvalue="Spring Boot.ThreadPoolApplication" />
       </list>
     </recent_temporary>
@@ -252,6 +299,16 @@
       <workItem from="1665832593389" duration="599000" />
       <workItem from="1665902685657" duration="858000" />
       <workItem from="1665909234816" duration="875000" />
+      <workItem from="1666680024137" duration="33000" />
+      <workItem from="1666680078157" duration="110000" />
+      <workItem from="1666680307257" duration="2235000" />
+      <workItem from="1666937429741" duration="625000" />
+      <workItem from="1667105449416" duration="614000" />
+      <workItem from="1667205181106" duration="11000" />
+      <workItem from="1667379572625" duration="455000" />
+      <workItem from="1667380034875" duration="2895000" />
+      <workItem from="1667549969303" duration="2952000" />
+      <workItem from="1667553528527" duration="2133000" />
     </task>
     <task id="LOCAL-00001" summary="杂项修改">
       <created>1664291973269</created>
@@ -281,7 +338,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665710897270</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="测试后处理器">
+      <created>1667380427697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667380427697</updated>
+    </task>
+    <task id="LOCAL-00006" summary="模块管理，新增cola示例">
+      <created>1667554852959</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667554852959</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +406,9 @@
     <MESSAGE value="添加普通的数据修改" />
     <MESSAGE value="测试新特性" />
     <MESSAGE value="信息同步" />
-    <option name="LAST_COMMIT_MESSAGE" value="信息同步" />
+    <MESSAGE value="测试后处理器" />
+    <MESSAGE value="模块管理，新增cola示例" />
+    <option name="LAST_COMMIT_MESSAGE" value="模块管理，新增cola示例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
