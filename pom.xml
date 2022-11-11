@@ -21,6 +21,7 @@
         <module>pizihao</module>
         <module>colaDerive</module>
         <module>Binder</module>
+        <module>aliyunTest</module>
     </modules>
 
     <properties>
