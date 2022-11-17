@@ -4,6 +4,8 @@ import com.example.mybatisderive.model.DO.DeriveDO;
 import com.example.mybatisderive.model.DTO.QueryDTO;
 import com.example.mybatisderive.service.DeriveService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,17 +21,18 @@ public class DeriveController {
     final DeriveService deriveService;
 
     @PostMapping("/save")
-    public Integer save(@RequestBody DeriveDO deriveDO){
+    public Integer save(@RequestBody DeriveDO deriveDO) {
         return deriveService.save(deriveDO);
     }
 
     @GetMapping("/select")
-    public List<DeriveDO> select(QueryDTO dto){
+    public List<DeriveDO> select(QueryDTO dto) {
         return deriveService.select(dto);
     }
 
     @GetMapping("/selectList")
-    public List<DeriveDO> select(){
+    @Transactional(propagation = Propagation.MANDATORY)
+    public List<DeriveDO> select() {
         return null;
     }
 
