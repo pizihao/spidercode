@@ -31,9 +31,8 @@ public class DeriveController {
     }
 
     @GetMapping("/selectList")
-    @Transactional(propagation = Propagation.MANDATORY)
-    public List<DeriveDO> select() {
-        return null;
+    public void select() {
+        deriveService.insert();
     }
 
 }

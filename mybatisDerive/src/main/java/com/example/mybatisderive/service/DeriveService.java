@@ -12,4 +12,6 @@ public interface DeriveService {
     Integer save(DeriveDO deriveDO);
 
     List<DeriveDO> select(QueryDTO dto);
+
+    void insert();
 }

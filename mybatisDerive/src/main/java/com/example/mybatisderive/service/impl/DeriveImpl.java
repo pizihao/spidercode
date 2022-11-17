@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class DeriveImpl implements DeriveService {
             Object savepoint = t.createSavepoint();
             deriveMapper.insert(deriveDO);
             t.rollbackToSavepoint(savepoint);
-        }) ;
+        });
 
         return deriveMapper.insert(deriveDO);
     }
@@ -37,5 +38,16 @@ public class DeriveImpl implements DeriveService {
     @Override
     public List<DeriveDO> select(QueryDTO dto) {
         return deriveMapper.selectByCondition(dto);
+    }
+
+    @Override
+    public void insert() {
+        transactionTemplate.executeWithoutResult(t -> {
+            DeriveDO deriveDO = new DeriveDO();
+            deriveDO.setName("lsj");
+            deriveDO.setDate(LocalDateTime.now());
+            deriveDO.setAddress("sssd");
+            deriveMapper.insert(deriveDO);
+        });
     }
 }
