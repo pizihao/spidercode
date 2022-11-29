@@ -40,20 +40,6 @@ public class ThreadPool {
             .build();
     }
 
-    public static void main(String[] args) {
-        ThreadFactory factory = new NamedThreadFactory("a",true);
-        ThreadPool threadPool = new ThreadPool();
-        ThreadPoolExecutor executorService = threadPool.getExecutorService(factory);
-
-        executorService.setCorePoolSize(39);
-        System.out.println(executorService.getCorePoolSize());
-        System.out.println(executorService.getMaximumPoolSize());
-        executorService.setMaximumPoolSize(39);
-
-        int corePoolSize = executorService.getCorePoolSize();
-
-    }
-
     /**
      * <h2>通过配置生成一个线程池</h2>
      *

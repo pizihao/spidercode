@@ -32,7 +32,7 @@ public class TestController {
     public Model testPut(@RequestBody Model model, @PathVariable Integer id) {
 
         System.out.println(messageProduceDynamicExecutor.getCorePoolSize());
-        InetUtils.HostInfo hostInfo = inetUtils.findFirstNonLoopbackHostInfo();
+        InetUtils.HostInfo hostInfo = inetUtils.findFirstNonLoopBackHostInfo();
         System.out.println(hostInfo.getHostname());
         System.out.println(hostInfo.getIpAddress());
         System.out.println(hostInfo.getIpAddressAsInt());
@@ -41,18 +41,6 @@ public class TestController {
         return model;
     }
 
-
-    public static void main(String[] args) {
-
-
-
-    }
-
-    public static <T> T mapToBean(Map<String, Object> map, T bean)   {
-        BeanMap beanMap = BeanMap.create(bean);
-        beanMap.putAll(map);
-        return bean;
-    }
 
 
 }

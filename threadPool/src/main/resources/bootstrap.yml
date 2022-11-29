@@ -5,7 +5,7 @@ spring:
     nacos:
       config:
         server-addr: 47.100.139.231:8848
-        namespace: 16231cfd-9879-4419-a6fd-94e1553ce155
+        namespace: d1fdd01d-3e7d-4226-9774-8964c0945e3b
         enabled: true
         file-extension: yaml
 

@@ -7,7 +7,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableDynamicThreadPool
-@EnableAsync
 public class ThreadPoolApplication {
 
     public static void main(String[] args) {
