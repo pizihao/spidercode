@@ -62,4 +62,11 @@ public class DeriveImpl implements DeriveService {
         });
     }
 
+    public void insertDerive() {
+        transactionTemplate.executeWithoutResult(t -> {
+            DeriveDO deriveDO = new DeriveDO(1, "name", "address", LocalDateTime.now());
+            deriveMapper.insert(deriveDO);
+        });
+    }
+
 }
