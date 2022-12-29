@@ -35,4 +35,9 @@ public class DeriveController {
         deriveService.insert();
     }
 
+    @GetMapping("insertDerive")
+    public void insertDerive(){
+        deriveService.insertDerive();
+    }
+
 }

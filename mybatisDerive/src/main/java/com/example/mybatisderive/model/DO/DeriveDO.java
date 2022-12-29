@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @ToString
 @Accessors(chain = true)
 @TableName("derive")
-@AllArgsConstructor
 @NoArgsConstructor
 public class DeriveDO {
 
@@ -44,4 +43,10 @@ public class DeriveDO {
      */
     @TableField("date")
     private LocalDateTime date;
+
+    public DeriveDO(String name, String address, LocalDateTime date) {
+        this.name = name;
+        this.address = address;
+        this.date = date;
+    }
 }
