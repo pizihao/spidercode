@@ -31,6 +31,10 @@ public class DeriveImpl implements DeriveService {
             Object savepoint = t.createSavepoint();
             deriveMapper.insert(deriveDO);
             t.rollbackToSavepoint(savepoint);
+
+            Object savepoint1 = t.createSavepoint();
+            deriveMapper.insert(deriveDO);
+            t.releaseSavepoint(savepoint1);
         });
 
         return deriveMapper.insert(deriveDO);
