@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder;
-
-import com.binder.DynamicThreadPoolNotifyProperties;
+package com.binder.properties;
 
 /**
  * Executor properties.

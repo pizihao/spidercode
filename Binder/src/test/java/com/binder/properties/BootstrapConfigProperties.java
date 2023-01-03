@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder;
-
-import com.binder.AdapterExecutorProperties;
+package com.binder.properties;
 
 import java.util.List;
 import java.util.Map;

@@ -135,25 +135,6 @@ public class StringUtil {
         return sb.toString();
     }
 
-
-    /**
-     * combination CharSequence, get a StringBuilder
-     *
-     * @param charSequences CharSequence
-     * @return StringBuilder
-     */
-    public static StringBuilder createBuilder(CharSequence... charSequences) {
-        StringBuilder builder = new StringBuilder();
-        if (charSequences == null || charSequences.length == 0) {
-            return builder;
-        }
-        for (CharSequence sequence : charSequences) {
-            builder.append(sequence);
-        }
-        return builder;
-    }
-
-
     /**
      * Replace a portion of the string, replacing all found
      *

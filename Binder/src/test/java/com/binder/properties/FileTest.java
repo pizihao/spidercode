@@ -1,4 +1,4 @@
-package com.binder;
+package com.binder.properties;
 
 import java.awt.*;
 import java.io.File;

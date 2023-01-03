@@ -1,4 +1,4 @@
-package com.binder;
+package com.binder.properties;
 
 import com.binder.source.MapPropertiesSource;
 import com.binder.source.Source;

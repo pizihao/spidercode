@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.binder;
+package com.binder.properties;
 
 import lombok.Data;
 
