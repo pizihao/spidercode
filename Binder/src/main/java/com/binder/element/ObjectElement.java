@@ -28,7 +28,7 @@ public class ObjectElement implements Element {
 
     @Override
     public boolean isSupport(Type type) {
-        if (type instanceof ParameterizedType) {
+        if (Objects.isNull(type) || type instanceof ParameterizedType) {
             return false;
         }
         Class<?> cls = (Class<?>) type;

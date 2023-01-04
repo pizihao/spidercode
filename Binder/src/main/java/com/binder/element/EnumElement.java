@@ -6,11 +6,12 @@ import com.binder.source.SourceName;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Objects;
 
 public class EnumElement implements Element {
     @Override
     public boolean isSupport(Type type) {
-        if (type instanceof ParameterizedType) {
+        if (Objects.isNull(type) || type instanceof ParameterizedType) {
             return false;
         }
         return ((Class<?>) type).isEnum();

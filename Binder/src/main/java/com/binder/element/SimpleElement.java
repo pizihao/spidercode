@@ -21,13 +21,14 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Create by liuwenhao on 2022/10/12 16:21
  */
 public class SimpleElement implements Element {
 
-    List<Class<?>> simple = new LinkedList<>();
+    final List<Class<?>> simple = new LinkedList<>();
 
     public SimpleElement() {
         simple.add(Integer.class);
@@ -43,7 +44,7 @@ public class SimpleElement implements Element {
 
     @Override
     public boolean isSupport(Type type) {
-        if (type instanceof ParameterizedType) {
+        if (Objects.isNull(type) || type instanceof ParameterizedType) {
             return false;
         }
         Class<?> cls = (Class<?>) type;

@@ -22,6 +22,7 @@ import com.binder.ElementUnit;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * @author Create by liuwenhao on 2022/10/12 16:06
@@ -29,7 +30,7 @@ import java.util.Collection;
 public class ArrayElement implements Element {
     @Override
     public boolean isSupport(Type type) {
-        if (type instanceof ParameterizedType) {
+        if (Objects.isNull(type) || type instanceof ParameterizedType) {
             return false;
         }
         return ((Class<?>) type).isArray();

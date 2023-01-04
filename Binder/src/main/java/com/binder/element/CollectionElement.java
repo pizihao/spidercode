@@ -22,10 +22,7 @@ import com.binder.source.SourceName;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -35,6 +32,9 @@ public class CollectionElement implements Element {
 
     @Override
     public boolean isSupport(Type type) {
+        if (Objects.isNull(type)){
+            return false;
+        }
         Class<?> cls;
         if (type instanceof ParameterizedType) {
             cls = (Class<?>) ((ParameterizedType) type).getRawType();
