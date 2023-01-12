@@ -6,10 +6,12 @@ import com.example.mybatisderive.model.DTO.CloudOrder;
 import com.example.mybatisderive.model.DTO.QueryDTO;
 import com.example.mybatisderive.service.DeriveService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 /**
@@ -21,6 +23,8 @@ import java.util.List;
 public class DeriveController {
 
     final DeriveService deriveService;
+    @Value("${local.name}")
+    String username;
 
     @PostMapping("/save")
     public Integer save(@RequestBody DeriveDO deriveDO) {
@@ -171,6 +175,12 @@ public class DeriveController {
                 "  \"totalPrice\": \"null\"\n" +
                 "}";
         return JSONObject.parseObject(a, CloudOrder.class);
+    }
+
+    @GetMapping("getLocalName")
+    public void getLocalName() throws UnknownHostException {
+        System.out.println(Inet4Address.getLocalHost().getHostAddress());
+        System.out.println(username);
     }
 
 }

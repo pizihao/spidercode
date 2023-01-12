@@ -10,6 +10,9 @@ spring:
   main:
     lazy-initialization: true
 
+local:
+  name: ${username}
+
 
 
 
