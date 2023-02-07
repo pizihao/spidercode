@@ -17,14 +17,13 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class DeriveImpl implements DeriveService {
+public class DeriveServiceImpl implements DeriveService {
 
     final DeriveMapper deriveMapper;
     final TransactionTemplate transactionTemplate;
 
     @Override
     public Integer save(DeriveDO deriveDO) {
-
 
         transactionTemplate.executeWithoutResult(t -> {
             deriveMapper.insert(deriveDO);
@@ -54,7 +53,6 @@ public class DeriveImpl implements DeriveService {
         deriveDO.setAddress("第一个地址");
         deriveMapper.insert(deriveDO);
     }
-
 
     public void insert2() {
         transactionTemplate.executeWithoutResult(t -> {
