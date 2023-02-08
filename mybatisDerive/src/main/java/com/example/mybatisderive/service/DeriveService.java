@@ -16,4 +16,6 @@ public interface DeriveService {
     void insert();
 
     void insertDerive();
+
+    void rollbackTest();
 }

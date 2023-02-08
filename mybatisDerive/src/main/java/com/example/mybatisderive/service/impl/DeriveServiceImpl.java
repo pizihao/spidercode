@@ -6,7 +6,6 @@ import com.example.mybatisderive.model.DTO.QueryDTO;
 import com.example.mybatisderive.service.DeriveService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import java.time.LocalDateTime;
@@ -45,13 +44,15 @@ public class DeriveServiceImpl implements DeriveService {
     }
 
     @Override
-    @Transactional
     public void insert() {
-        DeriveDO deriveDO = new DeriveDO();
-        deriveDO.setName("第一个");
-        deriveDO.setDate(LocalDateTime.now());
-        deriveDO.setAddress("第一个地址");
-        deriveMapper.insert(deriveDO);
+        transactionTemplate.executeWithoutResult(t -> {
+            DeriveDO deriveDO = new DeriveDO();
+            deriveDO.setName("第一个");
+            deriveDO.setDate(LocalDateTime.now());
+            deriveDO.setAddress("第一个地址");
+            deriveMapper.insert(deriveDO);
+            throw new RuntimeException();
+        }) ;
     }
 
     public void insert2() {
@@ -76,4 +77,18 @@ public class DeriveServiceImpl implements DeriveService {
         });
     }
 
+    @Override
+    public void rollbackTest() {
+        transactionTemplate.executeWithoutResult(t -> {
+            DeriveDO deriveDO = new DeriveDO("name", "address", LocalDateTime.now());
+            deriveMapper.insert(deriveDO);
+
+//            ThreadUtil.newThread(() -> {
+//                DeriveDO deriveDO1 = new DeriveDO("rollbackTest", "rollbackTest", LocalDateTime.now());
+//                deriveMapper.insert(deriveDO1);
+//            },"rollbackTest").start();
+            throw new RuntimeException();
+        }) ;
+
+    }
 }

@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class DeriveController {
     @Value("${local.name}")
     String username;
 
-    @PostMapping("/save")
+    @GetMapping("/save")
     public Integer save(@RequestBody DeriveDO deriveDO) {
         return deriveService.save(deriveDO);
     }
@@ -39,6 +38,11 @@ public class DeriveController {
     @GetMapping("/selectList")
     public void select() {
         deriveService.insert();
+    }
+
+    @GetMapping("rollbackTest")
+    public void rollbackTest(){
+        deriveService.rollbackTest();
     }
 
     @GetMapping("insertDerive")
