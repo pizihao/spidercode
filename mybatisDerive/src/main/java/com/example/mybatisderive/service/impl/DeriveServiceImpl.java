@@ -8,7 +8,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Method;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,7 +55,7 @@ public class DeriveServiceImpl implements DeriveService {
             deriveDO.setAddress("第一个地址");
             deriveMapper.insert(deriveDO);
             throw new RuntimeException();
-        }) ;
+        });
     }
 
     public void insert2() {
@@ -88,7 +91,25 @@ public class DeriveServiceImpl implements DeriveService {
 //                deriveMapper.insert(deriveDO1);
 //            },"rollbackTest").start();
             throw new RuntimeException();
-        }) ;
+        });
 
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 100, 50, 40, 30, 20, 110};
+        insertSort(arr);
+    }
+
+    public static void insertSort(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int insertData = arr[i];
+            int index = i - 1;
+            while (index >= 0 && insertData < arr[index]) {
+                arr[index + 1] = arr[index];
+                index--;
+            }
+            arr[index + 1] = insertData;
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
