@@ -31,4 +31,23 @@ public class BeanUtilTest {
         // Verify the results
         assertEquals(expectedResult, result);
     }
+
+
+    public static void main(String[] args) {
+
+
+        System.out.println(Float.parseFloat(String.format("%.2f", 45.0)));
+
+        Integer a = null;
+
+        switch (a) {
+            case 1:
+                break;
+            case 2:
+                System.out.println(123);
+            default:
+                break;
+        }
+
+    }
 }

@@ -5,8 +5,6 @@ import com.binder.mapper.SourceMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,10 +12,8 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class MapPropertiesSourceTest {
 
-    @Mock
     private SourceMapper mockSourceMapper;
 
     private MapPropertiesSource mapPropertiesSourceUnderTest;
