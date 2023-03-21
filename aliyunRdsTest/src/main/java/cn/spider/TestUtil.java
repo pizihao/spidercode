@@ -5,9 +5,13 @@ import com.aliyuncs.AcsResponse;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.profile.DefaultProfile;
+import com.google.common.base.Stopwatch;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
@@ -35,6 +39,12 @@ public class TestUtil {
     public static IAcsClient towerClient() {
         DefaultProfile profile = DefaultProfile.getProfile(rdsAlarmRegionId, AesUtils.decrypt(rdsAlarmAccessKeyId, "monitorRdsAlarmId"), AesUtils.decrypt(rdsAlarmSecret, "monitorRdsAlarmSecret"));
         return new DefaultAcsClient(profile);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println(stopwatch);
     }
 
 }
