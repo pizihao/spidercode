@@ -19,9 +19,9 @@ public class TestUtil {
 
     private static final String rdsAlarmRegionId = "cn-zhangjiakou";
     // F23A2587D34C26ABA0938**********************EC1106E42F3D2899FAD75
-    private static final String rdsAlarmAccessKeyId = "";
+    private static final String rdsAlarmAccessKeyId = "01EBF9CC7551A5DB5F224CC8B06E23BD270159B9437204EFAB39C763758F419B";
     // 3F582D8A737C87596219B**********************59F33F15D5E909D44C4A6
-    private static final String rdsAlarmSecret = "";
+    private static final String rdsAlarmSecret = "A7CA7274B5478989D3F471A0DC7FFE5C8169BC8952A4D336848BAFC5FD8A3B77";
 
     public static <T extends AcsResponse> T getTowerResponse(AcsRequest<T> request, IAcsClient client) {
         T response = null;

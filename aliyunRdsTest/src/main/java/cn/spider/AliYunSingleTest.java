@@ -1,7 +1,9 @@
 package cn.spider;
 
+import com.alibaba.fastjson.JSON;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstanceAttributeRequest;
+import com.aliyuncs.rds.model.v20140815.DescribeDBInstanceAttributeResponse;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstancesRequest;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstancesResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +25,8 @@ public class AliYunSingleTest {
 
     public static void main(String[] args) throws InterruptedException {
         List<CompletableFuture<Void>> futures = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            AliYunSingleTest aliYunTest = new AliYunSingleTest();
-            TimeUnit.MILLISECONDS.sleep(300);
-            futures.add(CompletableFuture.runAsync(aliYunTest::get, aliYunTest.rdsInfoBossExecutor));
-        }
+        AliYunSingleTest aliYunTest = new AliYunSingleTest();
+        futures.add(CompletableFuture.runAsync(aliYunTest::get, aliYunTest.rdsInfoBossExecutor));
         CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
 
 
@@ -35,18 +34,8 @@ public class AliYunSingleTest {
         RdsInfoThreadPoolConfig.rdsInfoBossExecutor.shutdown();
     }
 
-    private void get(){
-        long currentTimeMillis = System.currentTimeMillis();
-        long oldValue = millimeterCount.get();
-        // 如果多个线程都在使用，则只有一个会成功，其他的会同步到成功的结果，并且快速返回
-        if (currentTimeMillis > oldValue - 60000 && millimeterCount.compareAndSet(oldValue, currentTimeMillis + 300000)) {
-            sortDetailRdsInfoList();
-        } else {
-            if ((oldValue = millimeterCount.get()) > System.currentTimeMillis()){
-                millimeterCount.compareAndSet(oldValue, oldValue - 60000);
-            }
-            System.out.println(millimeterCount.get() - System.currentTimeMillis());
-        }
+    private void get() {
+        sortDetailRdsInfoList();
     }
 
     private void sortDetailRdsInfoList() {
@@ -71,7 +60,6 @@ public class AliYunSingleTest {
                     .map(s -> getTowerRdsDetailInfoList(towerClient, s))
                     .forEach(CompletableFuture::join);
             long e = System.currentTimeMillis();
-            System.out.println(e - t);
         } finally {
             towerClient.shutdown();
         }
@@ -81,7 +69,8 @@ public class AliYunSingleTest {
         return CompletableFuture.runAsync(() -> {
             DescribeDBInstanceAttributeRequest attributeRequest = new DescribeDBInstanceAttributeRequest();
             attributeRequest.setDBInstanceId(s);
-            TestUtil.getTowerResponse(attributeRequest, towerClient);
+            DescribeDBInstanceAttributeResponse towerResponse = TestUtil.getTowerResponse(attributeRequest, towerClient);
+            System.out.println(JSON.toJSONString(towerResponse));
         }, this.rdsInfoWorkerExecutor);
     }
 
