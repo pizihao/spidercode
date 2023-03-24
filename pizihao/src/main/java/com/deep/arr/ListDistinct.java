@@ -1,5 +1,7 @@
 package com.deep.arr;
 
+import java.util.*;
+
 public class ListDistinct {
 
     public static void main(String[] args) {
@@ -7,7 +9,7 @@ public class ListDistinct {
         List<Integer> list = new ArrayList<>();
         Collections.addAll(list, 1, 1, 1, 1, 1, 3, 3, 3, 3, 5, 5, 5, 8, 8, 8, 9, 9, 9, 12, 13, 42, 45, 89);
 
-        ClientTest clientTest = new ClientTest();
+        ListDistinct clientTest = new ListDistinct();
         clientTest.del(list);
 //        System.out.println(clientTest.test0(list));
     }
