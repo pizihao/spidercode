@@ -275,21 +275,4 @@ public class RdsPropertyInfo {
 
 	}
 
-	@Override
-	public String toString() {
-		return "RdsPropertyInfo{" +
-				"rdsProcessNo=" + rdsProcessNo +
-				", dbInstanceId='" + dbInstanceId + '\'' +
-				", name='" + name + '\'' +
-				", platformType=" + platformType +
-				", expireTime='" + expireTime + '\'' +
-				", engine=" + engine +
-				", engineVersion='" + engineVersion + '\'' +
-				", dbInstanceCpu=" + dbInstanceCpu +
-				", dbInstanceMemory=" + dbInstanceMemory +
-				", dbInstanceStorage=" + dbInstanceStorage +
-				", maxIops=" + maxIops +
-				", maxConnection=" + maxConnection +
-				'}';
-	}
 }
