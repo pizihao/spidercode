@@ -38,6 +38,10 @@ public class BeanUtilTest {
 
         System.out.println(Float.parseFloat(String.format("%.2f", 45.0)));
 
+        System.out.println(100 % 30);
+
+        System.out.println(Math.ceil(100 / 30.0));
+
         Integer a = null;
 
         switch (a) {
