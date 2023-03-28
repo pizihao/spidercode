@@ -1,7 +1,7 @@
 /**
  * Copyright(C) 2018 Hangzhou Differsoft Co., Ltd. All rights reserved.
  */
-package cn.spider;
+package cn.spider.aliyun;
 
 /**
  * 类描述: RDS资产统计

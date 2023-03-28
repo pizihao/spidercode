@@ -1,4 +1,4 @@
-package cn.spider;
+package cn.spider.aliyun;
 
 import com.aliyuncs.AcsRequest;
 import com.aliyuncs.AcsResponse;
@@ -10,7 +10,6 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

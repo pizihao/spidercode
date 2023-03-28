@@ -1,4 +1,4 @@
-package cn.spider;
+package cn.spider.aliyun;
 
 /**
  * Twitter SnowFlake（Scala -> Java）
