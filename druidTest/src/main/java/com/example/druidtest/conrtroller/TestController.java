@@ -1,9 +1,9 @@
-package com.deep.mvc.conrtroller;
+package com.example.druidtest.conrtroller;
 
-import com.deep.mvc.mapper.DeriveMapper;
-import com.deep.mvc.model.DeriveDO;
-import com.deep.mvc.model.Model;
-import com.deep.mvc.model.Order;
+import com.example.druidtest.mapper.DeriveMapper;
+import com.example.druidtest.model.DeriveDO;
+import com.example.druidtest.model.Model;
+import com.example.druidtest.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -70,9 +70,8 @@ public class TestController {
             list.add(new DeriveDO(String.valueOf(i), String.valueOf(i + System.currentTimeMillis())));
         }
 
-//        deriveMapper.add(list);
+        deriveMapper.add(list);
 
-        deriveMapper.insert(new DeriveDO("1", "2"));
 
         return "test";
     }

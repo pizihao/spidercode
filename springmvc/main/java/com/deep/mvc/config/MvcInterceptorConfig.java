@@ -22,9 +22,9 @@ public class MvcInterceptorConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor1)
-            .excludePathPatterns("/error")
-            .addPathPatterns("/**");
+//        registry.addInterceptor(interceptor1)
+//            .excludePathPatterns("/error")
+//            .addPathPatterns("/**");
 //        registry.addInterceptor(interceptor2)
 //            .excludePathPatterns("/error")
 //            .addPathPatterns("/**");

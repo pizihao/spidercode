@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: SPRING_MVC
-
-
-server:
-  port: 8082
