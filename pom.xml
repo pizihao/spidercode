@@ -23,6 +23,7 @@
         <module>Binder</module>
         <module>aliyunTest</module>
         <module>aliyunRdsTest</module>
+        <module>mybatisDerive</module>
     </modules>
 
     <properties>
