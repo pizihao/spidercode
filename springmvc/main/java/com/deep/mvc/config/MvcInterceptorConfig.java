@@ -3,6 +3,7 @@ package com.deep.mvc.config;
 import com.deep.mvc.interceptor.Interceptor1;
 import com.deep.mvc.interceptor.Interceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -20,6 +21,9 @@ public class MvcInterceptorConfig implements WebMvcConfigurer {
     @Autowired
     Interceptor2 interceptor2;
 
+    @Value("${server.port}")
+    String port;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 //        registry.addInterceptor(interceptor1)
@@ -28,6 +32,7 @@ public class MvcInterceptorConfig implements WebMvcConfigurer {
 //        registry.addInterceptor(interceptor2)
 //            .excludePathPatterns("/error")
 //            .addPathPatterns("/**");
+        System.out.println(port);
     }
 
 
