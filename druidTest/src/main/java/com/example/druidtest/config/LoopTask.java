@@ -1,7 +1,22 @@
 package com.example.druidtest.config;
 
+import java.util.Random;
+
 public class LoopTask {
     public static void main(String[] args) throws InterruptedException {
+
+
+        for (int i = 0; i < 100; i++) {
+
+            Random random = new Random();
+            int min = 1;
+            int max = 300;
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            System.out.println(randomNumber);
+        }
+        if (true){
+            throw new RuntimeException();
+        }
         // 1s = 1000000000ns，LockSupport仅支持暂停纳秒级，便于换算
         long convert = 1000000000L;
         // 等待时间，首次等待为2s
