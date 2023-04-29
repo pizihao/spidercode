@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="list去重测试">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/resources/applicaiton.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadPool/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/resources/bootstrap.yml" afterDir="false" />
-    </list>
+    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="对hippo4j进行测试" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -357,7 +340,7 @@
       <workItem from="1680009219595" duration="1037000" />
       <workItem from="1680089779402" duration="682000" />
       <workItem from="1681305096072" duration="2315000" />
-      <workItem from="1682743386118" duration="10019000" />
+      <workItem from="1682743386118" duration="10112000" />
     </task>
     <task id="LOCAL-00001" summary="杂项修改">
       <created>1664291973269</created>
@@ -436,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679667736824</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="对hippo4j进行测试">
+      <created>1682782274540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682782274540</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -497,7 +487,8 @@
     <MESSAGE value="插入排序" />
     <MESSAGE value="折半查找" />
     <MESSAGE value="list去重测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="list去重测试" />
+    <MESSAGE value="对hippo4j进行测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="对hippo4j进行测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
