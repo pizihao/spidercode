@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="删除部分信息">
-      <change afterPath="$PROJECT_DIR$/mybatisDerive/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5f317fb7-9ad9-4f9c-bfd0-b8cdb65816f4" name="Changes" comment="list去重测试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatisDerive/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/mybatisDerive/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/7.5/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatisDerive/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/java/com/deep/pool/conrtroller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadPool/src/main/resources/applicaiton.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/threadPool/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/threadPool/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +43,12 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="mybatisDerive" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -78,12 +94,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="pizihao" />
-                    <option name="lastUsedInstant" value="1666607273" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1669264213" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1665710254" />
+                    <option name="branchName" value="pizihao" />
+                    <option name="lastUsedInstant" value="1666607273" />
                   </RecentBranch>
                 </list>
               </option>
@@ -100,10 +116,10 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\Software\maven\maven" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../maven/apache-maven-3.9.0" />
+        <option name="localRepository" value="D:\software\maven\maven" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../maven/apache-maven-3.8.6" />
         <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="D:\Software\maven\apache-maven-3.9.0\conf\settings.xml" />
+        <option name="userSettingsFile" value="D:\software\maven\apache-maven-3.8.6\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -116,49 +132,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/Software/namespace/new/spidercode/springmvc/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.14015748",
-    "project.structure.side.proportion": "0.40275228",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "96a30e4e1070979f2d1a9903ae780672",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/SoftWare/IDEA/project/spidercode/colaDerive/colaDerive/pom.xml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14015748&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40275228&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b7d99853ecbfdc4fcd50b1fabbb572d2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Software\namespace\new\spidercode\springmvc\main\resources" />
-      <recent name="D:\Software\namespace\new\spidercode\springmvc\main\java\com\deep\mvc" />
-      <recent name="D:\Software\namespace\new\spidercode\springmvc\main\resources\mapper" />
-      <recent name="D:\Software\namespace\new\spidercode\springmvc\main\java\com\deep\mvc\model" />
       <recent name="D:\software\IDEA\project\spidercode\Binder\src\main\java\com" />
+      <recent name="D:\software\IDEA\project\spidercode\Binder" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\SoftWare\IDEA\project\spidercode" />
@@ -169,7 +182,6 @@
       <recent name="cn.spider.colaDerive.domain" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.spider" />
       <recent name="com.binder.util" />
     </key>
   </component>
@@ -180,13 +192,13 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SpringMVCApplication">
-    <configuration name="AliYunDiskTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.spider.aliyun.AliYunDiskTest" />
-      <module name="aliyunRdsTest" />
+  <component name="RunManager" selected="Spring Boot.ThreadPoolApplication">
+    <configuration name="FlinkToPort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.deep.flink.FlinkToPort" />
+      <module name="flink" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.spider.aliyun.*" />
+          <option name="PATTERN" value="com.deep.flink.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -194,12 +206,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AliYunSingleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.spider.aliyun.AliYunSingleTest" />
-      <module name="aliyunRdsTest" />
+    <configuration name="TableJob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.deep.flink.TableJob" />
+      <module name="flink" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.spider.aliyun.*" />
+          <option name="PATTERN" value="com.deep.flink.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -207,12 +219,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="K8sClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.spider.K8S.K8sClient" />
-      <module name="aliyunRdsTest" />
+    <configuration name="TestController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.deep.pool.conrtroller.TestController" />
+      <module name="threadPool" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.spider.K8S.*" />
+          <option name="PATTERN" value="com.deep.pool.conrtroller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -220,26 +232,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="K8sTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.spider.K8S.K8sTest" />
-      <module name="aliyunRdsTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cn.spider.K8S.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
+    <configuration name="AliyunTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="aliyunTest" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.aliyuntest.AliyunTestApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -278,23 +273,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreadPoolApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="threadPool" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.deep.pool.ThreadPoolApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.deep.pool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.K8sClient" />
-      <item itemvalue="Application.K8sTest" />
-      <item itemvalue="Application.AliYunDiskTest" />
-      <item itemvalue="Application.AliYunSingleTest" />
+      <item itemvalue="Application.FlinkToPort" />
+      <item itemvalue="Application.TableJob" />
+      <item itemvalue="Application.TestController" />
+      <item itemvalue="Spring Boot.AliyunTestApplication" />
       <item itemvalue="Spring Boot.ColaDeriveApplication" />
       <item itemvalue="Spring Boot.ColaDeriveApplication (1)" />
       <item itemvalue="Spring Boot.MybatisDeriveApplication" />
       <item itemvalue="Spring Boot.SpringMVCApplication" />
+      <item itemvalue="Spring Boot.ThreadPoolApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.ThreadPoolApplication" />
+        <item itemvalue="Application.FlinkToPort" />
+        <item itemvalue="Application.TableJob" />
         <item itemvalue="Spring Boot.SpringMVCApplication" />
-        <item itemvalue="Application.K8sTest" />
-        <item itemvalue="Application.K8sClient" />
-        <item itemvalue="Application.AliYunDiskTest" />
-        <item itemvalue="Application.AliYunSingleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -335,23 +343,21 @@
       <workItem from="1667380034875" duration="2895000" />
       <workItem from="1667549969303" duration="2952000" />
       <workItem from="1667553528527" duration="2133000" />
-      <workItem from="1678928121620" duration="202000" />
-      <workItem from="1678947886252" duration="502000" />
-      <workItem from="1678948404824" duration="297000" />
-      <workItem from="1679448628637" duration="249000" />
-      <workItem from="1679448898273" duration="623000" />
-      <workItem from="1679542397337" duration="2368000" />
-      <workItem from="1679549971665" duration="668000" />
-      <workItem from="1679667110030" duration="184000" />
-      <workItem from="1679907479177" duration="4007000" />
-      <workItem from="1679980568018" duration="618000" />
-      <workItem from="1679985358529" duration="8009000" />
-      <workItem from="1680224199878" duration="4293000" />
-      <workItem from="1680230173967" duration="380000" />
-      <workItem from="1680230616622" duration="985000" />
-      <workItem from="1680233128574" duration="629000" />
-      <workItem from="1680240353345" duration="3270000" />
-      <workItem from="1680258177694" duration="4477000" />
+      <workItem from="1669264122947" duration="169000" />
+      <workItem from="1674101838907" duration="6053000" />
+      <workItem from="1674193124679" duration="7000" />
+      <workItem from="1674193142609" duration="2131000" />
+      <workItem from="1674393150580" duration="2586000" />
+      <workItem from="1674907256707" duration="4465000" />
+      <workItem from="1676774165853" duration="358000" />
+      <workItem from="1676775168265" duration="875000" />
+      <workItem from="1678965679020" duration="620000" />
+      <workItem from="1679125991104" duration="21000" />
+      <workItem from="1679667640336" duration="134000" />
+      <workItem from="1680009219595" duration="1037000" />
+      <workItem from="1680089779402" duration="682000" />
+      <workItem from="1681305096072" duration="2315000" />
+      <workItem from="1682743386118" duration="10019000" />
     </task>
     <task id="LOCAL-00001" summary="杂项修改">
       <created>1664291973269</created>
@@ -395,84 +401,42 @@
       <option name="project" value="LOCAL" />
       <updated>1667554852959</updated>
     </task>
-    <task id="LOCAL-00007" summary="测试switch的值能不能为null">
-      <created>1678957845504</created>
+    <task id="LOCAL-00007" summary="快速排序">
+      <created>1674137488378</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1678957845504</updated>
+      <updated>1674137488378</updated>
     </task>
-    <task id="LOCAL-00008" summary="阿里云连接的多线程测试">
-      <created>1679306411943</created>
+    <task id="LOCAL-00008" summary="快速排序">
+      <created>1674139114295</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1679306411943</updated>
+      <updated>1674139114295</updated>
     </task>
-    <task id="LOCAL-00009" summary="添加guava依赖">
-      <created>1679392947839</created>
+    <task id="LOCAL-00009" summary="插入排序">
+      <created>1674393219059</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1679392947839</updated>
+      <updated>1674393219059</updated>
     </task>
-    <task id="LOCAL-00010" summary="修改">
-      <created>1679482210223</created>
+    <task id="LOCAL-00010" summary="折半查找">
+      <created>1674907723849</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1679482210223</updated>
+      <updated>1674907723849</updated>
     </task>
-    <task id="LOCAL-00011" summary="有关串行流嵌套并行流的测试">
-      <created>1679554702824</created>
+    <task id="LOCAL-00011" summary="list去重测试">
+      <created>1679667736824</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1679554702824</updated>
+      <updated>1679667736824</updated>
     </task>
-    <task id="LOCAL-00012" summary="测试提交">
-      <created>1679667152346</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1679667152346</updated>
-    </task>
-    <task id="LOCAL-00013" summary="aliyun环境测试修改">
-      <created>1679967766864</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1679967766864</updated>
-    </task>
-    <task id="LOCAL-00014" summary="测试大量数据插入数据库是否会出现通讯异常">
-      <created>1680257053402</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680257053402</updated>
-    </task>
-    <task id="LOCAL-00015" summary="修改配置文件格式">
-      <created>1680414702026</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680414702026</updated>
-    </task>
-    <task id="LOCAL-00016" summary="改用本地环境测试">
-      <created>1680416453337</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1680416453337</updated>
-    </task>
-    <task id="LOCAL-00017" summary="删除部分信息">
-      <created>1680416519624</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1680416519624</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -529,18 +493,11 @@
     <MESSAGE value="测试后处理器" />
     <MESSAGE value="模块管理，新增cola示例" />
     <MESSAGE value="测试监听端口" />
-    <MESSAGE value="测试switch的值能不能为null" />
-    <MESSAGE value="阿里云连接的多线程测试" />
-    <MESSAGE value="添加guava依赖" />
-    <MESSAGE value="修改" />
-    <MESSAGE value="有关串行流嵌套并行流的测试" />
-    <MESSAGE value="测试提交" />
-    <MESSAGE value="aliyun环境测试修改" />
-    <MESSAGE value="测试大量数据插入数据库是否会出现通讯异常" />
-    <MESSAGE value="修改配置文件格式" />
-    <MESSAGE value="改用本地环境测试" />
-    <MESSAGE value="删除部分信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除部分信息" />
+    <MESSAGE value="快速排序" />
+    <MESSAGE value="插入排序" />
+    <MESSAGE value="折半查找" />
+    <MESSAGE value="list去重测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="list去重测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

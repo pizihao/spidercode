@@ -20,27 +20,27 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @RestController
-@RequestMapping("Test")
+@RequestMapping("test")
 public class TestController {
 
     @Autowired
     ThreadPoolExecutor messageProduceDynamicExecutor;
     @Autowired
-    InetUtils inetUtils;
+    ThreadPoolExecutor messageConsumeDynamicExecutor;
 
-    @PutMapping("/{id}")
-    public Model testPut(@RequestBody Model model, @PathVariable Integer id) {
-
+    @GetMapping()
+    public void testPut() {
+        System.out.println("===============messageProduceDynamicExecutor====================");
         System.out.println(messageProduceDynamicExecutor.getCorePoolSize());
-        InetUtils.HostInfo hostInfo = inetUtils.findFirstNonLoopBackHostInfo();
-        System.out.println(hostInfo.getHostname());
-        System.out.println(hostInfo.getIpAddress());
-        System.out.println(hostInfo.getIpAddressAsInt());
-        System.out.println();
-        model.setId(id);
-        return model;
+        System.out.println(messageProduceDynamicExecutor.getMaximumPoolSize());
+        System.out.println(messageProduceDynamicExecutor.getQueue().size());
+        System.out.println("===============messageProduceDynamicExecutor====================");
+        System.out.println("===============messageConsumeDynamicExecutor====================");
+        System.out.println(messageConsumeDynamicExecutor.getCorePoolSize());
+        System.out.println(messageConsumeDynamicExecutor.getMaximumPoolSize());
+        System.out.println(messageConsumeDynamicExecutor.getQueue().size());
+        System.out.println("===============messageConsumeDynamicExecutor====================");
     }
-
 
 
 }
