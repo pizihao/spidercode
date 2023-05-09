@@ -5,13 +5,15 @@ import com.deep.mvc.model.DeriveDO;
 import com.deep.mvc.model.Model;
 import com.deep.mvc.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 /**
  * <h2></h2>
@@ -29,6 +31,24 @@ public class TestController {
     @GetMapping(value = "/{id}")
     public Callable<String> test(@PathVariable String id, HttpServletRequest request) throws InterruptedException {
         return () -> "handler";
+    }
+
+    @GetMapping("/DeferredResult")
+    public DeferredResult<String> testDeferredResult() {
+        System.out.println(Thread.currentThread().getName());
+        DeferredResult<String> result = new DeferredResult<>(10000L, () -> {
+            System.out.println("超时了");
+            return "A + B";
+        });
+        new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            result.setResult("a + b");
+        }).start();
+        return result;
     }
 
     @GetMapping("/body")
