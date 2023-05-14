@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -51,6 +53,11 @@ public class TestController {
         return result;
     }
 
+    public static void main(String[] args) throws UnknownHostException {
+
+        String address = InetAddress.getLocalHost().getHostAddress();
+        System.out.println(address);
+    }
     @GetMapping("/body")
     public Model test(@RequestBody Model id) {
         return id;

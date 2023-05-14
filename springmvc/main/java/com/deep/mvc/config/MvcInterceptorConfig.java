@@ -5,8 +5,13 @@ import com.deep.mvc.interceptor.Interceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <h2></h2>
@@ -35,5 +40,10 @@ public class MvcInterceptorConfig implements WebMvcConfigurer {
         System.out.println(port);
     }
 
+    public static void main(String[] args) {
+        RequestAttributes attributes = RequestContextHolder.currentRequestAttributes();
+        HttpServletRequest servletRequest = ((ServletRequestAttributes) attributes).getRequest();
+        System.out.println(servletRequest);
+    }
 
 }
