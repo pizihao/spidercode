@@ -6,6 +6,7 @@ import com.deep.mvc.model.Model;
 import com.deep.mvc.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
@@ -29,6 +30,18 @@ public class TestController {
 
     @Autowired
     DeriveMapper deriveMapper;
+
+    @GetMapping(value = "/async")
+    public String async() throws InterruptedException {
+        asyncTest();
+        return "success";
+    }
+
+    @Async
+    public void asyncTest() throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println(3);
+    }
 
     @GetMapping(value = "/{id}")
     public Callable<String> test(@PathVariable String id, HttpServletRequest request) throws InterruptedException {
