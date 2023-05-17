@@ -4,18 +4,12 @@ import cn.hutool.core.collection.ListUtil;
 import com.deep.mvc.interceptor.Interceptor1;
 import com.deep.mvc.interceptor.Interceptor2;
 import com.deep.mvc.model.Model;
-import org.apache.commons.collections.ListUtils;
-import org.apache.flink.shaded.guava18.com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 
