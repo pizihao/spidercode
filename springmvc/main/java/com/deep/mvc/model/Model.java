@@ -10,6 +10,14 @@ public class Model {
     Integer id;
     String name;
 
+    public Model() {
+    }
+
+    public Model(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,5 +32,13 @@ public class Model {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
