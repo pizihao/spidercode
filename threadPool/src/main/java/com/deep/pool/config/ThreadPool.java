@@ -2,12 +2,12 @@ package com.deep.pool.config;
 
 import cn.hippo4j.core.executor.DynamicThreadPool;
 import cn.hippo4j.core.executor.support.ThreadPoolBuilder;
-import cn.hutool.core.thread.NamedThreadFactory;
+import org.apache.commons.lang3.time.StopWatch;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * <h2></h2>
@@ -22,10 +22,10 @@ public class ThreadPool {
     public ThreadPoolExecutor messageConsumeDynamicExecutor() {
         String threadPoolId = "message-consume";
         return ThreadPoolBuilder.builder()
-            .threadFactory(threadPoolId)
-            .threadPoolId(threadPoolId)
-            .dynamicPool()
-            .build();
+                .threadFactory(threadPoolId)
+                .threadPoolId(threadPoolId)
+                .dynamicPool()
+                .build();
     }
 
     @Bean
@@ -34,10 +34,10 @@ public class ThreadPool {
         String threadPoolId = "message-produce";
 
         return ThreadPoolBuilder.builder()
-            .threadFactory(threadPoolId)
-            .threadPoolId(threadPoolId)
-            .dynamicPool()
-            .build();
+                .threadFactory(threadPoolId)
+                .threadPoolId(threadPoolId)
+                .dynamicPool()
+                .build();
     }
 
     /**
@@ -45,29 +45,44 @@ public class ThreadPool {
      *
      * @param factory 线程池工厂
      * @return java.util.concurrent.ExecutorService
-     * @author liuwenhao
+     * @author pizihao
      * @date 2022/1/14 13:56
      */
-    private ThreadPoolExecutor getExecutorService(ThreadFactory factory) {
+    private static ThreadPoolExecutor getExecutorService(ThreadFactory factory) {
         // 核心线程数
-        int coreSize = 16;
+        int coreSize = 160;
         // 线程池最大值
-        int mixSize = 32;
+        int mixSize = 160;
         // 线程保存时间 (秒：s)
         long keepAliveTime = 20;
         // 等待队列大小
-        int capacitySize = 16;
+        int capacitySize = 2;
 
         // 配置线程池
         return new ThreadPoolExecutor(
-            coreSize,
-            mixSize,
-            keepAliveTime,
-            TimeUnit.SECONDS,
-            new ArrayBlockingQueue<>(capacitySize),
-            factory,
-            new ThreadPoolExecutor.CallerRunsPolicy()
+                coreSize,
+                mixSize,
+                keepAliveTime,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(capacitySize),
+                factory,
+                new ThreadPoolExecutor.AbortPolicy()
         );
+    }
+
+    public static void main(String[] args) {
+        StopWatch stopWatch = StopWatch.createStarted();
+
+
+        ThreadPoolExecutor service = getExecutorService(Executors.defaultThreadFactory());
+        for (int i = 0; i < 200; i++) {
+            LockSupport.parkNanos(1);
+            service.execute(() -> {
+                LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(2L));
+            });
+        }stopWatch.split();
+        System.out.println();
+        System.out.println(stopWatch.getNanoTime());
     }
 
 }
