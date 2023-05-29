@@ -13,7 +13,6 @@ public class SplitUtil {
     public static void main(String[] args) {
         int parallel = 2;
         List<Info> infos = infos();
-        // 一个主任务的共享库都在同一个rds之下，只需要关注数据库名即可
         Map<String, List<Info>> map = infos.stream()
                 .collect(Collectors.groupingBy(Info::getName));
         // 加入分组索引
