@@ -1,5 +1,6 @@
 package com.example.aclient.controller;
 
+import com.example.aclient.bean.Manager;
 import com.netflix.appinfo.ApplicationInfoManager;
 import com.netflix.appinfo.InstanceInfo;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +20,14 @@ public class Controller {
 
     final DiscoveryClient discoveryClient;
     final ApplicationInfoManager properties;
+    final Manager<String> manager;
 
     @Value("${spring.application.name}")
     String name;
 
     @GetMapping("/instanceList")
     public List<ServiceInstance> getInstance() {
+        System.out.println(manager.getT());
         return discoveryClient.getInstances(name);
     }
 
