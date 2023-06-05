@@ -49,7 +49,7 @@ public class AliYunTest {
         long t = System.currentTimeMillis();
         IAcsClient acsClient = TestUtil.towerClient();
         List<DescribeDBInstancesResponse.DBInstance> instances = instances(acsClient);
-//        System.out.println(instances.size());
+        System.out.println(instances.size());
         int size = (instances.size() + segmentSize - 1) / segmentSize;
         List<String> instance = Stream.iterate(0, i -> i + 1)
                 .limit(size)
@@ -77,6 +77,11 @@ public class AliYunTest {
 
         CompletableFuture.allOf(completableFutures.toArray(new CompletableFuture[0])).join();
         long e = System.currentTimeMillis();
+
+        List<DescribeDBInstanceAttributeResponse> collect = completableFutures.stream()
+                .map(CompletableFuture::join)
+                .collect(Collectors.toList());
+
 
         System.out.println(e - t);
 

@@ -6,6 +6,7 @@ import com.aliyuncs.rds.model.v20140815.DescribeDBInstanceAttributeRequest;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstanceAttributeResponse;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstancesRequest;
 import com.aliyuncs.rds.model.v20140815.DescribeDBInstancesResponse;
+import io.fabric8.utils.Lists;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
@@ -41,20 +42,21 @@ public class AliYunSingleTest {
         IAcsClient towerClient = TestUtil.towerClient();
         try {
             long t = System.currentTimeMillis();
-            List<DescribeDBInstancesResponse.DBInstance> dbInstances = instances(towerClient);
-            int segmentSize = getSegmentSize(dbInstances.size());
-            int limitSize = (dbInstances.size() + segmentSize - 1) / segmentSize;
-            List<String> instances = Stream.iterate(0, i -> i + 1)
-                    .limit(limitSize)
-                    .map(a -> dbInstances
-                            .parallelStream()
-                            .map(DescribeDBInstancesResponse.DBInstance::getDBInstanceId)
-                            .skip((long) a * segmentSize)
-                            .limit(segmentSize)
-                            .collect(Collectors.toList()))
-                    .filter(b -> !b.isEmpty())
-                    .map(d -> String.valueOf(d).replace(" ", "").replace("[", "").replace("]", ""))
-                    .collect(Collectors.toList());
+//            List<DescribeDBInstancesResponse.DBInstance> dbInstances = instances(towerClient);
+//            int segmentSize = getSegmentSize(dbInstances.size());
+//            int limitSize = (dbInstances.size() + segmentSize - 1) / segmentSize;
+//            List<String> instances = Stream.iterate(0, i -> i + 1)
+//                    .limit(limitSize)
+//                    .map(a -> dbInstances
+//                            .parallelStream()
+//                            .map(DescribeDBInstancesResponse.DBInstance::getDBInstanceId)
+//                            .skip((long) a * segmentSize)
+//                            .limit(segmentSize)
+//                            .collect(Collectors.toList()))
+//                    .filter(b -> !b.isEmpty())
+//                    .map(d -> String.valueOf(d).replace(" ", "").replace("[", "").replace("]", ""))
+//                    .collect(Collectors.toList());
+            List<String> instances = Lists.newArrayList("rm-k2ji2j1f08i965835");
             instances.parallelStream()
                     .map(s -> getTowerRdsDetailInfoList(towerClient, s))
                     .forEach(CompletableFuture::join);
