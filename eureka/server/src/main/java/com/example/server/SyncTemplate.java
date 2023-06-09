@@ -68,24 +68,74 @@ public class SyncTemplate implements ApplicationRunner {
                         (rs, rowNum) -> new Structure(rs.getString(1)))
                 .stream()
                 .filter(Objects::nonNull)
-//                .map(t -> t.setDropSql(String.format(InformationSql.DROP_TABLE, t.getName())))
                 .map(t -> jdbcTemplate.queryForObject(
                         String.format(InformationSql.SELECT_CREATE_TABLE, t.getName()),
                         (rs, rowNum) -> t.setSql(rs.getString(2) + ";"))
                 );
 
-        // 存储结构
+        // 存储过程
         Stream<Structure> procedureStream = jdbcTemplate
                 .query(String.format(InformationSql.PROCEDURE, databaseName),
                         (rs, rowNum) -> new Structure(rs.getString(2)))
                 .stream()
                 .filter(Objects::nonNull)
-//                .map(s -> s.setDropSql(String.format(InformationSql.DELETE_PROCEDURE, s.getName())))
                 .map(s -> jdbcTemplate.queryForObject(
                         String.format(InformationSql.SELECT_CREATE_PROCEDURE, s.getName()),
                         (rs, rowNum) -> {
                             String body = rs.getString(3);
-                            return s.setSql(/*InformationSql.DELIMITER_START +*/ body + ";"/* + InformationSql.DELIMITER_STOP*/);
+                            return s.setSql(body + ";");
+                        })
+                );
+
+        // 触发器
+        Stream<Structure> triggersStream = jdbcTemplate
+                .query(InformationSql.TRIGGERS, (rs, rowNum) -> new Structure(rs.getString(1)))
+                .stream()
+                .filter(Objects::nonNull)
+                .map(s -> jdbcTemplate.queryForObject(
+                        String.format(InformationSql.SELECT_CREATE_TRIGGERS, s.getName()),
+                        (rs, rowNum) -> {
+                            String body = rs.getString(3);
+                            return s.setSql(body + ";");
+                        })
+                );
+
+        // 视图
+        Stream<Structure> viewStream = jdbcTemplate
+                .query(String.format(InformationSql.VIEWS, databaseName),
+                        (rs, rowNum) -> new Structure(rs.getString(1)))
+                .stream()
+                .filter(Objects::nonNull)
+                .map(s -> jdbcTemplate.queryForObject(
+                        String.format(InformationSql.SELECT_CREATE_VIEW, s.getName()),
+                        (rs, rowNum) -> {
+                            String body = rs.getString(2);
+                            return s.setSql(body + ";");
+                        })
+                );
+
+        Stream<Structure> functionStream = jdbcTemplate
+                .query(String.format(InformationSql.FUNCTIONS, databaseName),
+                        (rs, rowNum) -> new Structure(rs.getString(1)))
+                .stream()
+                .filter(Objects::nonNull)
+                .map(s -> jdbcTemplate.queryForObject(
+                        String.format(InformationSql.SELECT_CREATE_FUNCTION, s.getName()),
+                        (rs, rowNum) -> {
+                            String body = rs.getString(3);
+                            return s.setSql(body + ";");
+                        })
+                );
+
+        Stream<Structure> eventStream = jdbcTemplate
+                .query(InformationSql.EVENTS, (rs, rowNum) -> new Structure(rs.getString(2)))
+                .stream()
+                .filter(Objects::nonNull)
+                .map(s -> jdbcTemplate.queryForObject(
+                        String.format(InformationSql.SELECT_CREATE_EVENT, s.getName()),
+                        (rs, rowNum) -> {
+                            String body = rs.getString(4);
+                            return s.setSql(body + ";");
                         })
                 );
 
