@@ -3,7 +3,7 @@ package com.example.server;
 /**
  * 查询mysql表结构，存储过程，索引DDL的sql
  */
-public enum InformationSql {
+public interface InformationSql {
 
     /**
      * 删除数据库

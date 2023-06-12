@@ -13,11 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * 在集成测试环境启动，同步生产环境的模板库到集成测试环境
@@ -62,85 +59,10 @@ public class SyncTemplate implements ApplicationRunner {
         // 创建库 DDL
         String createDatabase = String.format(InformationSql.CREATE_DATABASES, databaseName);
 
-        // 表
-        Stream<Structure> tablesStream = jdbcTemplate
-                .query(InformationSql.TABLES,
-                        (rs, rowNum) -> new Structure(rs.getString(1)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(t -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_TABLE, t.getName()),
-                        (rs, rowNum) -> t.setSql(rs.getString(2) + ";"))
-                );
-
-        // 存储过程
-        Stream<Structure> procedureStream = jdbcTemplate
-                .query(String.format(InformationSql.PROCEDURE, databaseName),
-                        (rs, rowNum) -> new Structure(rs.getString(2)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(s -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_PROCEDURE, s.getName()),
-                        (rs, rowNum) -> {
-                            String body = rs.getString(3);
-                            return s.setSql(body + ";");
-                        })
-                );
-
-        // 触发器
-        Stream<Structure> triggersStream = jdbcTemplate
-                .query(InformationSql.TRIGGERS, (rs, rowNum) -> new Structure(rs.getString(1)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(s -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_TRIGGERS, s.getName()),
-                        (rs, rowNum) -> {
-                            String body = rs.getString(3);
-                            return s.setSql(body + ";");
-                        })
-                );
-
-        // 视图
-        Stream<Structure> viewStream = jdbcTemplate
-                .query(String.format(InformationSql.VIEWS, databaseName),
-                        (rs, rowNum) -> new Structure(rs.getString(1)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(s -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_VIEW, s.getName()),
-                        (rs, rowNum) -> {
-                            String body = rs.getString(2);
-                            return s.setSql(body + ";");
-                        })
-                );
-
-        Stream<Structure> functionStream = jdbcTemplate
-                .query(String.format(InformationSql.FUNCTIONS, databaseName),
-                        (rs, rowNum) -> new Structure(rs.getString(1)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(s -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_FUNCTION, s.getName()),
-                        (rs, rowNum) -> {
-                            String body = rs.getString(3);
-                            return s.setSql(body + ";");
-                        })
-                );
-
-        Stream<Structure> eventStream = jdbcTemplate
-                .query(InformationSql.EVENTS, (rs, rowNum) -> new Structure(rs.getString(2)))
-                .stream()
-                .filter(Objects::nonNull)
-                .map(s -> jdbcTemplate.queryForObject(
-                        String.format(InformationSql.SELECT_CREATE_EVENT, s.getName()),
-                        (rs, rowNum) -> {
-                            String body = rs.getString(4);
-                            return s.setSql(body + ";");
-                        })
-                );
-
-        // 串联流
-        List<Structure> structures = Stream.concat(tablesStream, procedureStream)
+        List<Structure> structures = Arrays.stream(StructureType.values())
+                .map(s -> s.getStructure(jdbcTemplate, databaseName))
+                .map(s -> s.collect(Collectors.toList()))
+                .flatMap(Collection::stream)
                 .collect(Collectors.toList());
 
         // 组合所有的SQl
