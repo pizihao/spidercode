@@ -16,14 +16,34 @@ public interface InformationSql {
     String CREATE_DATABASES = "CREATE DATABASE %s;";
 
     /**
+     * 获取所有的表，当前数据库表
+     */
+    String TABLES = "SHOW TABLES;";
+
+    /**
      * 查询建表语句
      */
     String SELECT_CREATE_TABLE = "SHOW CREATE TABLE %s;";
 
     /**
-     * 获取所有的表，当前数据库表
+     * 表的列名
      */
-    String TABLES = "SHOW TABLES;";
+    String TABLE_COLUMN = "SELECT CONCAT(GROUP_CONCAT(COLUMN_NAME)) AS insert_statement\n" +
+            "FROM (\n" +
+            "  SELECT COLUMN_NAME\n" +
+            "  FROM INFORMATION_SCHEMA.COLUMNS\n" +
+            "  WHERE TABLE_SCHEMA = '%s' AND TABLE_NAME = '%s'\n" +
+            ") AS t;";
+
+    /**
+     * 转化为insert语句
+     */
+    String TABLE_INSERT = "INSERT INTO %s (%s) VALUES %s;";
+
+    /**
+     * 转化为select语句
+     */
+    String TABLE_SELECT = "SELECT %s from %s;";
 
     /**
      * 查询所有的存储过程
@@ -48,7 +68,7 @@ public interface InformationSql {
     /**
      * 查询所有的视图 1
      */
-    String VIEWS = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = %s;";
+    String VIEWS = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '%s';";
 
     /**
      * 查询创建视图语句   2
@@ -58,7 +78,7 @@ public interface InformationSql {
     /**
      * 查询所有的函数 1
      */
-    String FUNCTIONS = "SELECT EVENT_NAME FROM INFORMATION_SCHEMA.EVENTS WHERE EVENT_SCHEMA = %s;";
+    String FUNCTIONS = "SHOW FUNCTION STATUS WHERE Db = '%s';";
 
     /**
      * 查询创建函数语句   3

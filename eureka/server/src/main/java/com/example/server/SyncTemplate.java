@@ -23,10 +23,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SyncTemplate implements ApplicationRunner {
 
-    private static final String PROD_HOST = "localhost";
+    private static final String PROD_HOST = "47.100.139.231";
     private static final int PROD_PORT = 3306;
     private static final String PROD_USERNAME = "root";
-    private static final String PROD_PASSWORD = "root";
+    private static final String PROD_PASSWORD = "Pizihao3073";
 
 
     public static final String PROP_DEFAULT_READONLY = "defaultReadOnly";
@@ -74,6 +74,8 @@ public class SyncTemplate implements ApplicationRunner {
                 s -> sql.append(s.getSql()).append("\n")
         );
 
+        System.out.println(sql);
+
         SQLExec sqlExec = new SQLExec();
         // 设置数据库参数
         sqlExec.setDriver(MYSQL_DRIVER);
@@ -112,7 +114,7 @@ public class SyncTemplate implements ApplicationRunner {
     static class Structure {
         String name;
         String sql;
-        String dropSql;
+        String sqlFragment;
 
         public Structure(String name) {
             this.name = name;
@@ -121,6 +123,10 @@ public class SyncTemplate implements ApplicationRunner {
         public String getName() {
             return "`" + name + "`";
         }
-    }
 
+        public String getSimpleName() {
+            return name;
+        }
+
+    }
 }
