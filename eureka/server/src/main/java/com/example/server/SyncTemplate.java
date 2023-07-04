@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SyncTemplate implements ApplicationRunner {
 
+
+
     private static final String PROD_HOST = "47.100.139.231";
     private static final int PROD_PORT = 3306;
     private static final String PROD_USERNAME = "root";
