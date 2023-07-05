@@ -1,7 +1,8 @@
 package com.example.server;
 
-import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.google.common.collect.Maps;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.*;
 import lombok.experimental.Accessors;
 import org.apache.tools.ant.Project;
@@ -10,7 +11,6 @@ import org.apache.tools.ant.types.EnumeratedAttribute;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.*;
@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 //@Component
 @RequiredArgsConstructor
 public class SyncTemplate implements ApplicationRunner {
-
 
 
     private static final String PROD_HOST = "localhost";
@@ -46,14 +45,14 @@ public class SyncTemplate implements ApplicationRunner {
         //  生产环境的数据源
         String databaseName = "framesample_database_templates";
         String url = String.format(URL_STR, PROD_HOST, PROD_PORT, databaseName);
-        Map<String, Object> map = Maps.newHashMap();
+        Properties map = new Properties();
         map.put(PROP_DEFAULT_READONLY, "false");
         map.put(PROP_DEFAULT_AUTO_COMMIT, "false");
         map.put(PROP_DRIVER_CLASSNAME, MYSQL_DRIVER);
         map.put(PROP_URL, url);
         map.put(PROP_PASSWORD, PROD_PASSWORD);
         map.put(PROP_USERNAME, PROD_USERNAME);
-        DataSource dataSource = DruidDataSourceFactory.createDataSource(map);
+        DataSource dataSource = new HikariDataSource(new HikariConfig(map));
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         // 删除库 DDL
