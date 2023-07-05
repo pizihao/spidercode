@@ -19,16 +19,16 @@ import java.util.stream.Collectors;
 /**
  * 在集成测试环境启动，同步生产环境的模板库到集成测试环境
  */
-@Component
+//@Component
 @RequiredArgsConstructor
 public class SyncTemplate implements ApplicationRunner {
 
 
 
-    private static final String PROD_HOST = "47.100.139.231";
+    private static final String PROD_HOST = "localhost";
     private static final int PROD_PORT = 3306;
     private static final String PROD_USERNAME = "root";
-    private static final String PROD_PASSWORD = "Pizihao3073";
+    private static final String PROD_PASSWORD = "root";
 
 
     public static final String PROP_DEFAULT_READONLY = "defaultReadOnly";
