@@ -10,7 +10,7 @@ import org.apache.tools.ant.taskdefs.SQLExec;
 import org.apache.tools.ant.types.EnumeratedAttribute;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.jdbc.core.JdbcTemplate;
+//import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.util.*;
@@ -53,27 +53,27 @@ public class SyncTemplate implements ApplicationRunner {
         map.put(PROP_PASSWORD, PROD_PASSWORD);
         map.put(PROP_USERNAME, PROD_USERNAME);
         DataSource dataSource = new HikariDataSource(new HikariConfig(map));
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+//        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
         // 删除库 DDL
         String dropDatabase = String.format(InformationSql.DROP_DATABASES, databaseName);
         // 创建库 DDL
         String createDatabase = String.format(InformationSql.CREATE_DATABASES, databaseName);
 
-        List<Structure> structures = Arrays.stream(StructureType.values())
-                .map(s -> s.getStructure(jdbcTemplate, databaseName))
-                .map(s -> s.collect(Collectors.toList()))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toList());
+//        List<Structure> structures = Arrays.stream(StructureType.values())
+//                .map(s -> s.getStructure(jdbcTemplate, databaseName))
+//                .map(s -> s.collect(Collectors.toList()))
+//                .flatMap(Collection::stream)
+//                .collect(Collectors.toList());
 
         // 组合所有的SQl
         StringBuilder sql = new StringBuilder()
                 .append(dropDatabase).append("\n")
                 .append(createDatabase).append("\n")
                 .append("USE ").append(databaseName).append(";\n");
-        structures.forEach(
-                s -> sql.append(s.getSql()).append("\n")
-        );
+//        structures.forEach(
+//                s -> sql.append(s.getSql()).append("\n")
+//        );
 
         System.out.println(sql);
 
