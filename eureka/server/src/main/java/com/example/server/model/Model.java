@@ -7,6 +7,16 @@ public class Model {
     String goodsIdList;
     String skuIdList;
 
+    public Model() {
+    }
+
+    public Model(String fixParam, String bizType, String goodsIdList, String skuIdList) {
+        this.fixParam = fixParam;
+        this.bizType = bizType;
+        this.goodsIdList = goodsIdList;
+        this.skuIdList = skuIdList;
+    }
+
     public String getFixParam() {
         return fixParam;
     }
@@ -37,5 +47,15 @@ public class Model {
 
     public void setSkuIdList(String skuIdList) {
         this.skuIdList = skuIdList;
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "fixParam='" + fixParam + '\'' +
+                ", bizType='" + bizType + '\'' +
+                ", goodsIdList='" + goodsIdList + '\'' +
+                ", skuIdList='" + skuIdList + '\'' +
+                '}';
     }
 }

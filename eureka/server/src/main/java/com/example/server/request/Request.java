@@ -4,6 +4,8 @@ import com.example.server.model.Model;
 import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -32,5 +34,18 @@ public class Request {
         });
 
         return 4;
+    }
+
+    public static void main(String[] src) {
+        List<Model> toBeReturned = new ArrayList<>();
+
+        Model buffer = new Model("25", "25", "25", "25");
+        boolean f = true;
+        while (f) {
+            toBeReturned.add(buffer);
+            buffer = new Model("30", "30", "30", "30");
+            System.out.println(toBeReturned);
+            f = false;
+        }
     }
 }
