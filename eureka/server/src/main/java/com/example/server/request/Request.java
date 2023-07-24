@@ -1,7 +1,6 @@
 package com.example.server.request;
 
-import com.example.server.model.Model;
-import com.google.common.collect.Lists;
+import com.example.server.model.ModelTest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,11 +13,11 @@ import java.util.concurrent.TimeUnit;
 public class Request {
 
     @PostMapping("/post")
-    public void request(@RequestBody Model model) {
-        System.out.println(model.getFixParam());
-        System.out.println(model.getBizType());
-        System.out.println(model.getGoodsIdList());
-        System.out.println(model.getSkuIdList());
+    public void request(@RequestBody ModelTest modelTest) {
+        System.out.println(modelTest.getFixParam());
+        System.out.println(modelTest.getBizType());
+        System.out.println(modelTest.getGoodsIdList());
+        System.out.println(modelTest.getSkuIdList());
 
     }
 
@@ -37,13 +36,13 @@ public class Request {
     }
 
     public static void main(String[] src) {
-        List<Model> toBeReturned = new ArrayList<>();
+        List<ModelTest> toBeReturned = new ArrayList<>();
 
-        Model buffer = new Model("25", "25", "25", "25");
+        ModelTest buffer = new ModelTest("25", "25", "25", "25");
         boolean f = true;
         while (f) {
             toBeReturned.add(buffer);
-            buffer = new Model("30", "30", "30", "30");
+            buffer = new ModelTest("30", "30", "30", "30");
             System.out.println(toBeReturned);
             f = false;
         }

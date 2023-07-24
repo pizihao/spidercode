@@ -1,21 +1,32 @@
 package com.example.server.model;
 
-public class Model {
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ModelTest {
 
     String fixParam;
     String bizType;
     String goodsIdList;
     String skuIdList;
+    long time;
 
-    public Model() {
+    public ModelTest() {
     }
 
-    public Model(String fixParam, String bizType, String goodsIdList, String skuIdList) {
+    public ModelTest(String fixParam, String bizType, String goodsIdList, String skuIdList) {
         this.fixParam = fixParam;
         this.bizType = bizType;
         this.goodsIdList = goodsIdList;
         this.skuIdList = skuIdList;
     }
+
+
+    public ModelTest(long time) {
+        this.time = time;
+    }
+
 
     public String getFixParam() {
         return fixParam;
@@ -51,11 +62,31 @@ public class Model {
 
     @Override
     public String toString() {
-        return "Model{" +
+        return "ModelTest{" +
                 "fixParam='" + fixParam + '\'' +
                 ", bizType='" + bizType + '\'' +
                 ", goodsIdList='" + goodsIdList + '\'' +
                 ", skuIdList='" + skuIdList + '\'' +
+                ", time=" + time +
                 '}';
     }
+
+    public static void main(String[] args) {
+        List<ModelTest> modelTests = new ArrayList<>();
+
+        modelTests.add(new ModelTest(10));
+        modelTests.add(new ModelTest(20));
+        modelTests.add(new ModelTest(1));
+        modelTests.add(new ModelTest(5));
+        modelTests.add(new ModelTest(4));
+
+        ModelTest test = modelTests.stream()
+                .min((f, l) -> Math.toIntExact(f.time - l.time))
+                .get();
+
+        System.out.println(test);
+
+
+    }
+
 }
