@@ -75,7 +75,15 @@
             <!--            <scope>provided</scope>-->
             <scope>compile</scope>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo -->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>5.5.0</version>
+            <optional>true</optional>
+            <!--            <scope>provided</scope>-->
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
