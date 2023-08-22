@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.locks.LockSupport;
@@ -115,5 +116,13 @@ public class TestController {
         LockSupport.parkNanos(600000000000L);
 
         return "test";
+    }
+
+    public static void main(String[] args) {
+        String s = "?????.xlsx";
+        System.out.println(s.lastIndexOf("."));
+
+        System.out.println(s.substring(0,s.lastIndexOf(".")));
+        System.out.println(s.substring(s.lastIndexOf(".")));
     }
 }
