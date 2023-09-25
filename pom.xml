@@ -25,6 +25,7 @@
         <module>aliyunRdsTest</module>
         <module>mybatisDerive</module>
         <module>eureka</module>
+        <module>rule</module>
     </modules>
 
     <properties>
