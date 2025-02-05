@@ -12,9 +12,9 @@ public class SwasTest {
     public static void main(String[] args) throws Exception {
         Config config = new Config()
                 // 必填，您的 AccessKey ID
-                .setAccessKeyId("LTAI5tQJfnEWZwsmgNZeNC4s")
+                .setAccessKeyId("")
                 // 必填，您的 AccessKey Secret
-                .setAccessKeySecret("vqMn6TKrD22rYROXQREMev0981rN0E");
+                .setAccessKeySecret("");
         // 访问的域名
         config.endpoint = "swas.cn-shanghai.aliyuncs.com";
         Client client = new Client(config);

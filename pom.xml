@@ -26,6 +26,7 @@
         <module>mybatisDerive</module>
         <module>eureka</module>
         <module>rule</module>
+        <module>cache</module>
     </modules>
 
     <properties>
